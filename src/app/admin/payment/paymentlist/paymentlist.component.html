@@ -1,0 +1,90 @@
+
+  <main id="main" class="main m-auto mycard">
+    <div class="row">
+      <!-- add filter by date -->
+      <!-- <div class="col-12">
+        <div class="card col-12 m-auto">
+          <div class="card-body ">
+
+      
+              <div class="d-flex align-items-center">
+
+                <div class="ps-3">
+                  <h6 class="badge rounded-pill bg-primary" style="font-size: xx-large;"></h6>
+                 
+                </div>
+              </div>
+            </div>
+      </div>
+      </div> -->
+      <div class="col-12">
+        <app-paymentcount></app-paymentcount>
+      </div>
+      <div class="col-12 mt-5">
+        <div class="row">
+          <a routerLink="/company/payment/add" class="btn btn-primary col-2 float-left">اضافه مدفوعات</a>
+          <!-- <div class="pagetitle">
+            <h1>Data Tables</h1>
+            <nav>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Tables</li>
+                <li class="breadcrumb-item active">Data</li>
+              </ol>
+            </nav>
+
+                    <h5 class="card-title">payments</h5>
+                   
+      
+                    <!-- Table with stripped rows -->
+                    <table class="table datatable col-10 m-auto">
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col" class="text-center">transactionId</th>
+                          <th scope="col" class="text-center">الرقم القومي للطيار</th>
+                          <th scope="col" class="text-center">الرقم القومي للراسل</th>
+                          <th scope="col" class="text-center">رقم موبيل الراسل</th>
+                          <th scope="col" class="text-center">اسم الفرع</th>
+                          <th scope="col" class="text-center">طريقه الدفع</th>
+                          <th scope="col" class="text-center">وقت الدفع</th>
+                          <th scope="col" class="text-center">القيمه</th>
+                          <th scope="col" class="text-center">الحاله</th>
+                    
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of listofpayment;  index as i">
+                          <th scope="row">{{i+1}}</th>
+                          <td  class="text-center">{{item.transactionId}}</td>
+                          <td class="text-center">{{item.riderNationalNo}}</td>
+                          <td class="text-center">{{item.senderNationalNo}}</td>
+                          <td class="text-center">{{item.senderMobileNo}}</td>
+                          <td class="text-center">{{item.branchName}}</td>
+                          <td class="text-center">{{item.paymentMethod}}</td>
+                          <td class="text-center">{{item.paymentTime|date:'dd-mm-yy'}}</td>
+                          <td class="text-center">{{item.paymentAmount}}</td>
+                          <td class="text-center">
+                            <span *ngIf="item.status==	'Completed'" class="badge rounded-pill bg-success">
+                              {{item.status}}
+                            </span>
+                            <span *ngIf="item.status!=	'Completed'" class="badge rounded-pill bg-danger">
+                              {{item.status}}
+                            </span>
+                         
+                          </td>
+                        </tr>
+             
+                  
+            
+                      </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+ 
+        </div>
+
+      </div>
+    </div>
+
+
+  </main><!-- End #main -->
