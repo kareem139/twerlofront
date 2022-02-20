@@ -1,0 +1,77 @@
+
+
+  <mat-stepper [linear]="isLinear" #stepper>
+    <mat-step label="اضافه">
+        <div class="card mt-5">
+            <div class="card-inner">
+                <form action="#" class="form-validate">
+                    <div class="row g-gs">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="fv-full-name"> الي شركه </label>
+                                <div class="form-control-wrap ">
+                                    <select class="form-control form-select" id="fv-topics" name="fv-topics" data-placeholder="اخترالشركه" required>
+                                        <option label="empty" value=""></option>
+                                        <option value="fv-gq">General Question</option>
+                                        <option value="fv-tq">Tachnical Question</option>
+                                        <option value="fv-ab">Account &amp; Billing</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="fv-email"> رصيد الشركه المستحق</label>
+                                <div class="form-control-wrap">
+                                    <div class="card col-6">
+                                        <div class="card-inner">
+                                            <span>EGP</span>
+                                            1000
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="fv-email"> تاريخ</label>
+                                <div class="form-control-wrap">
+                                    <input type="date" class="form-control" id="fv-email" name="fv-email" required>
+                                </div>
+                            </div>
+                        </div>
+           
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="fv-email">القيمه</label>
+                                <div class="form-control-wrap">
+                                    <input type="number" class="form-control" id="fv-email" name="fv-email" required>
+                                </div>
+                            </div>
+                        </div>
+        
+        
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-lg btn-primary">حفظ</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </mat-step>
+    <mat-step  label="مراجعه">
+     
+    </mat-step>
+    <mat-step label="نجاح">
+      
+    </mat-step>
+  </mat-stepper>
+
+
+
+
+

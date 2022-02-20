@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatStepperModule } from '@angular/material/stepper';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './admin/login/login.component';
@@ -15,6 +15,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AuthInterceptor } from './middleware/auth.interceptor';
 import { PaymentcountComponent } from './admin/payment/paymentcount/paymentcount.component';
+import { MerchantpaymentComponent } from './admin/merchant/merchantpayment/merchantpayment.component';
+import { TransactionsComponent } from './admin/merchant/transactions/transactions.component';
+import { AddtransactionComponent } from './admin/merchant/addtransaction/addtransaction.component';
+import { ListtransactionComponent } from './admin/merchant/listtransaction/listtransaction.component';
+import { TransactionstatusComponent } from './admin/merchant/transactionstatus/transactionstatus.component';
+import { FiltersComponent } from './admin/merchant/filters/filters.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,13 @@ import { PaymentcountComponent } from './admin/payment/paymentcount/paymentcount
     FooterComponent,
     SidebarComponent,
     CompanyComponent,
-    PaymentcountComponent
+    PaymentcountComponent,
+    MerchantpaymentComponent,
+    TransactionsComponent,
+    AddtransactionComponent,
+    ListtransactionComponent,
+    TransactionstatusComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,
@@ -34,8 +47,10 @@ import { PaymentcountComponent } from './admin/payment/paymentcount/paymentcount
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatStepperModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
