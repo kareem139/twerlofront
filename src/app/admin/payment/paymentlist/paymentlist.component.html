@@ -1,90 +1,65 @@
-
-  <main id="main" class="main m-auto mycard">
-    <div class="row">
-      <!-- add filter by date -->
-      <!-- <div class="col-12">
-        <div class="card col-12 m-auto">
-          <div class="card-body ">
-
-      
-              <div class="d-flex align-items-center">
-
-                <div class="ps-3">
-                  <h6 class="badge rounded-pill bg-primary" style="font-size: xx-large;"></h6>
-                 
-                </div>
+<main id="main" class="main m-auto mycard">
+  <div class="card">
+    <div class="card-inner p-0">
+      <div class="card-head pl-4 pr-4">
+          <h5 class="card-title"> مراجعة  المدفوعات</h5>
+      </div>
+          <form action="#" class="pr-4 pl-4 pb-4">
+              <div class="row g-4">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                          <label class="form-label" for="full-name-1">الشركات </label>
+                          <div class="form-control-wrap ">
+                              <select class="form-control form-select" placeholder="اختر الشركة" required>
+                                  <option value="">اختر الشركة</option>
+                                  <option value="fv-gq">General Question</option>
+                                  <option value="fv-tq">Tachnical Question</option>
+                                  <option value="fv-ab">Account &amp; Billing</option>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-12 row justify-content-end">
+                      <div class="form-group">
+                          <button type="submit" class="btn btn-lg btn-primary">بحث</button>
+                          <button class="btn btn-secondary btn-lg mr-1 ml-1" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            اظهار التفاصيل
+                          </button>
+                      </div>
+                  </div>
               </div>
-            </div>
+          </form>
       </div>
-      </div> -->
-      <div class="col-12">
-        <app-paymentcount></app-paymentcount>
-      </div>
-      <div class="col-12 mt-5">
-        <div class="row">
-          <a routerLink="/company/payment/add" class="btn btn-primary col-2 float-left">اضافه مدفوعات</a>
-          <!-- <div class="pagetitle">
-            <h1>Data Tables</h1>
-            <nav>
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item">Tables</li>
-                <li class="breadcrumb-item active">Data</li>
-              </ol>
-            </nav>
-
-                    <h5 class="card-title">payments</h5>
-                   
-      
-                    <!-- Table with stripped rows -->
-                    <table class="table datatable col-10 m-auto">
-                      <thead>
-                        <tr>
-                          <th scope="col"></th>
-                          <th scope="col" class="text-center">transactionId</th>
-                          <th scope="col" class="text-center">الرقم القومي للطيار</th>
-                          <th scope="col" class="text-center">الرقم القومي للراسل</th>
-                          <th scope="col" class="text-center">رقم موبيل الراسل</th>
-                          <th scope="col" class="text-center">اسم الفرع</th>
-                          <th scope="col" class="text-center">طريقه الدفع</th>
-                          <th scope="col" class="text-center">وقت الدفع</th>
-                          <th scope="col" class="text-center">القيمه</th>
-                          <th scope="col" class="text-center">الحاله</th>
-                    
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let item of listofpayment;  index as i">
-                          <th scope="row">{{i+1}}</th>
-                          <td  class="text-center">{{item.transactionId}}</td>
-                          <td class="text-center">{{item.riderNationalNo}}</td>
-                          <td class="text-center">{{item.senderNationalNo}}</td>
-                          <td class="text-center">{{item.senderMobileNo}}</td>
-                          <td class="text-center">{{item.branchName}}</td>
-                          <td class="text-center">{{item.paymentMethod}}</td>
-                          <td class="text-center">{{item.paymentTime|date:'dd-mm-yy'}}</td>
-                          <td class="text-center">{{item.paymentAmount}}</td>
-                          <td class="text-center">
-                            <span *ngIf="item.status==	'Completed'" class="badge rounded-pill bg-success">
-                              {{item.status}}
-                            </span>
-                            <span *ngIf="item.status!=	'Completed'" class="badge rounded-pill bg-danger">
-                              {{item.status}}
-                            </span>
-                         
-                          </td>
-                        </tr>
-             
-                  
-            
-                      </tbody>
-                    </table>
-                    <!-- End Table with stripped rows -->
- 
+  </div>
+  <div class="collapse" id="collapseExample">
+    <div class="card">
+      <div class="card-head pl-4 pr-4">
+        <h5 class="card-title">اظهار التفاصيل</h5>
+    </div>
+      <div class="card-body">
+        <div class="d-flex justify-content-between mt-1">
+          <div class="d-flex justify-content-start">
+            <p class="font-weight-bold">مجموع اليوم :</p>
+            <span class="mr-1 ml-1">500 EGP</span>
+          </div>
+          <div class="d-flex justify-content-start">
+            <p class="font-weight-bold">المتوقع :</p>
+            <span class="mr-1 ml-1">500 EGP</span>
+          </div>
         </div>
-
+        <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-start">
+            <p class="font-weight-bold">النهائي :</p>
+            <span class="mr-1 ml-1">800 EGP</span>
+          </div>
+          <div class="d-flex justify-content-start">
+            <p class="font-weight-bold">المرحل من اليوم السابق :</p>
+            <span class="mr-1 ml-1">300 EGP</span>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 
 
-  </main><!-- End #main -->
+</main><!-- End #main -->
