@@ -5,3 +5,23 @@
   .mat-form-field {
     margin-top: 16px;
   }
+  #main{
+    /* padding-top: 5%; */
+    padding-right: 23%;
+    
+}
+.card .table tr:first-child th, .card .table tr:first-child td {
+    min-width: 190px;
+}
+.card-head {
+    background-color: #854fff;
+
+}
+.card-title {
+    color: #fff;
+}
+.dataBinding {
+    border: 1px solid #dbdfea;
+    padding: 7px;
+    border-radius: 3px;
+}

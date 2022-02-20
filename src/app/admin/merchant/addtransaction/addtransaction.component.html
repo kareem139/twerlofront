@@ -1,5 +1,4 @@
-
-
+<main id="main" class="main m-auto mycard">
   <mat-stepper [linear]="isLinear" #stepper>
     <mat-step label="اضافه">
         <div class="card mt-5">
@@ -22,9 +21,9 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label" for="fv-email"> رصيد الشركه المستحق</label>
-                                <div class="form-control-wrap">
-                                    <div class="card col-6">
-                                        <div class="card-inner">
+                                <div>
+                                    <div class="mb-0">
+                                        <div class="dataBinding">
                                             <span>EGP</span>
                                             1000
                                         </div>
@@ -52,9 +51,12 @@
                         </div>
         
         
-                        <div class="col-md-12">
+                        <div class="row justify-content-end col-12 m-0">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-lg btn-primary">حفظ</button>
+                            </div>
+                            <div>
+                                <a routerLink="/company/merchant/listtransaction" class="btn btn-lg btn-danger mr-1 ml-1">رجوع</a>
                             </div>
                         </div>
                     </div>
@@ -75,3 +77,5 @@
 
 
 
+
+</main>
