@@ -53,7 +53,27 @@
             </form>
         </div>
         <div class="p-2">
-            <table class="table p-3 table-responsive table-striped w-100 datatable-init nowrap nk-tb-list is-separate">
+            <table datatable [dtOptions]="dtOptions" class="row-border hover  w-100">
+                <thead>
+                    <tr>
+                        <th scope="col">رقم المعاملة</th>
+                        <th scope="col">تاريخ</th>
+                        <th scope="col">مدفوع الي</th>
+                        <th scope="col">الطيار</th>
+                        <th scope="col">القيمة</th>
+                      </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let post of data">
+                    <td>{{ post.id }}</td>
+                    <td>20-1-2022</td>
+                    <td>{{ post.to }}</td>
+                    <td>{{ post.rider }}</td>
+                    <td>{{ post.amount }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            <!-- <table class="table p-3 table-responsive table-striped w-100 datatable-init nowrap nk-tb-list is-separate">
                 <thead>
                   <tr>
                     <th scope="col">رقم المعاملة</th>
@@ -86,7 +106,7 @@
                     <td>100</td>
                   </tr>
                 </tbody>
-            </table>
+            </table> -->
         </div>
     </div>
    

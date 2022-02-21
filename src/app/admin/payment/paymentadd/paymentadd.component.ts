@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CompanyService } from '../../services/company.service';
 import { PaymentService } from '../../services/payment.service';
 import Swal from 'sweetalert2'
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-paymentadd',
@@ -11,12 +12,31 @@ import Swal from 'sweetalert2'
 })
 export class PaymentaddComponent implements OnInit {
 
-  constructor(private service:PaymentService,private router:Router,private companyservice:CompanyService) { }
+  constructor(private service:PaymentService,private router:Router,private companyservice:CompanyService,
+    private http:HttpClient) { }
+  dtOptions: DataTables.Settings = {};
 
+  data:any=[
+    {id:2,to:"Mac",rider:"احمد مصطفي السيد",amount:500},
+    {id:3,to:"Marsol",rider:" مصطفي السيد",amount:300},
+    {id:4,to:"Mac",rider:"احمد  السيد",amount:200},
+    {id:5,to:"Marsol",rider:"احمد مصطفي ",amount:400},
+    {id:6,to:"Mac",rider:"احمد محمد ",amount:500},
+    {id:7,to:"Mac",rider:" محمد السيد",amount:900},
+  ];
   listofcompanies:Array<any>=[]
   random:string="";
 
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      processing: true
+    };
+  //   this.http.get('http://jsonplaceholder.typicode.com/posts')
+  //   .subscribe(posts => {
+  //     this.data = posts;
+  // });
     this.getallcodeReq();
     this.checkontransId()
     

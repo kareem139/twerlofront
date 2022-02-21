@@ -24,7 +24,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <div class="form-control-wrap ">
-                                <label class="form-label mr-2" for="full-name-1">المدفوع لها </label>
+                                <label class="form-label mr-2" for="full-name-1">المدفوع منها </label>
                                 <select class="form-control form-select" placeholder="اختر الشركة" required>
                                     <option value="">اختر الشركة</option>
                                     <option value="fv-gq">General Question</option>
@@ -55,72 +55,26 @@
             </form>
         </div>
         <div class="p-1">
-            <table class="datatable-init nowrap nk-tb-list is-separate" data-auto-responsive="false">
+            <table datatable [dtOptions]="dtOptions" class="row-border hover  w-100">
                 <thead>
-                    <tr class="nk-tb-item nk-tb-head">
-                        <th class="nk-tb-col nk-tb-col-check">
-                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                <input type="checkbox" class="custom-control-input" id="puid">
-                                <label class="custom-control-label" for="puid"></label>
-                            </div>
-                        </th>
+                    <tr>
+                        <th class="nk-tb-col"><span>رقم العمليه</span></th>
                         <th class="nk-tb-col tb-col-sm"><span>اسم الطيار</span></th>
                         <th class="nk-tb-col"><span>الشركة المحولة</span></th>
                         <th class="nk-tb-col"><span>القيمة</span></th>
                         <th class="nk-tb-col"><span>التاريخ</span></th>
-                    </tr><!-- .nk-tb-item -->
+                      </tr>
                 </thead>
                 <tbody>
-                    <tr class="nk-tb-item">
-                        <td class="nk-tb-col nk-tb-col-check">
-                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                <input type="checkbox" class="custom-control-input" id="puid1">
-                                <label class="custom-control-label" for="puid1"></label>
-                            </div>
-                        </td>
-                        <td class="nk-tb-col tb-col-sm">
-                            <span class="tb-product">
-                                <img src="./images/product/a.png" alt="" class="thumb">
-                                <span class="title">محمد علي</span>
-                            </span>
-                        </td>
-                        <td class="nk-tb-col">
-                            <span class="tb-sub">طلبات</span>
-                        </td>
-                        <td class="nk-tb-col">
-                            <span class="tb-lead">EGP 99.49</span>
-                        </td>
-                        <td class="nk-tb-col">
-                            <span class="tb-sub">22/1/2022</span>
-                        </td>
-                   
-                    </tr>
-                    <tr class="nk-tb-item">
-                        <td class="nk-tb-col nk-tb-col-check">
-                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                <input type="checkbox" class="custom-control-input" id="puid1">
-                                <label class="custom-control-label" for="puid1"></label>
-                            </div>
-                        </td>
-                        <td class="nk-tb-col tb-col-sm">
-                            <span class="tb-product">
-                                <img src="./images/product/a.png" alt="" class="thumb">
-                                <span class="title">احمد محمود</span>
-                            </span>
-                        </td>
-                        <td class="nk-tb-col">
-                            <span class="tb-sub">طلبات</span>
-                        </td>
-                        <td class="nk-tb-col">
-                            <span class="tb-lead">EGP 209.49</span>
-                        </td>
-                        <td class="nk-tb-col">
-                            <span class="tb-sub">10/1/2022</span>
-                        </td>
-                   
-                    </tr>
+                  <tr *ngFor="let post of data">
+                    <td>{{ post.rider }}</td>
+                    <td>20-1-2022</td>
+                    <td>{{ post.from }}</td>
+                    <td>{{ post.amount }}</td>
+                    <td>20-1-2022</td>
+                  </tr>
                 </tbody>
-            </table>
+              </table>
         </div>
     </div>
  

@@ -22,6 +22,7 @@ import { ListtransactionComponent } from './admin/merchant/listtransaction/listt
 import { TransactionstatusComponent } from './admin/merchant/transactionstatus/transactionstatus.component';
 import { FiltersComponent } from './admin/merchant/filters/filters.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatStepperModule
+    MatStepperModule,
+    DataTablesModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
