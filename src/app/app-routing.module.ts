@@ -6,6 +6,7 @@ import { AddtransactionComponent } from './admin/merchant/addtransaction/addtran
 import { ListtransactionComponent } from './admin/merchant/listtransaction/listtransaction.component';
 import { MerchantpaymentComponent } from './admin/merchant/merchantpayment/merchantpayment.component';
 import { TransactionsComponent } from './admin/merchant/transactions/transactions.component';
+import { PaymentactionsComponent } from './admin/payment/paymentactions/paymentactions.component';
 import { PaymentaddComponent } from './admin/payment/paymentadd/paymentadd.component';
 import { PaymentlistComponent } from './admin/payment/paymentlist/paymentlist.component';
 import { AuthGuard } from './middleware/auth.guard';
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path:"company",component:CompanyComponent,children:[
     {path:"payment",children:[
       {path:"add",component:PaymentaddComponent},
-      {path:"list",component:PaymentlistComponent}
+      {path:"list",component:PaymentlistComponent},
+      {path:"action",component:PaymentactionsComponent}
     ]},
     {path:"merchant",children:[
       {path:"payments",component:MerchantpaymentComponent},
