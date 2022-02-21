@@ -13,3 +13,10 @@
 .card-title {
     color: #fff;
 }
+.nk-tb-col .btn-danger {
+    border-radius: 3px;
+}
+
+.nk-tb-col .btn-success {
+    border-radius: 3px;
+}

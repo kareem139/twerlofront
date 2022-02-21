@@ -4,33 +4,16 @@
     <div class="card">
         <div class="card-inner p-0">
             <div class="card-head pl-4 pr-4">
-                <h5 class="card-title">  المدفوعات</h5>
+                <h5 class="card-title">المدفوعات</h5>
             </div>
-            <form action="#" class="form-validate p-4">
-                <div class="row g-gs">
-                    <div class="col-md-4">
+            <form action="#" class="pr-4 pl-4 pb-4">
+                <div class="row g-1">
+                    <div class="col-lg-3">
                         <div class="form-group">
-                            <label class="form-label" for="fv-full-name">من تاريخ </label>
                             <div class="form-control-wrap">
-                                <input type="date" class="form-control" id="fv-full-name" name="fv-full-name" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="form-label" for="fv-email">الي تاريخ</label>
-                            <div class="form-control-wrap">
-                                <input type="date" class="form-control" id="fv-email" name="fv-email" required>
-                            </div>
-                        </div>
-                    </div>
-       
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="form-label" for="fv-topics">الشركه</label>
-                            <div class="form-control-wrap ">
-                                <select class="form-control form-select" id="fv-topics" name="fv-topics" data-placeholder="اختر الشركه" required>
-                                    <option label="empty" value=""></option>
+                                <label class="form-label mr-2" for="full-name-1">الشركات </label>
+                                <select class="form-control form-select" placeholder="اختر الشركة" required>
+                                    <option value="">اختر الشركة</option>
                                     <option value="fv-gq">General Question</option>
                                     <option value="fv-tq">Tachnical Question</option>
                                     <option value="fv-ab">Account &amp; Billing</option>
@@ -38,84 +21,109 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="row justify-content-end col-12">
+                    <div class="col-lg-3">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-lg btn-primary">بحث</button>
+                            <div class="form-control-wrap ">
+                                <label class="form-label mr-2" for="full-name-1">المدفوع لها </label>
+                                <select class="form-control form-select" placeholder="اختر الشركة" required>
+                                    <option value="">اختر الشركة</option>
+                                    <option value="fv-gq">General Question</option>
+                                    <option value="fv-tq">Tachnical Question</option>
+                                    <option value="fv-ab">Account &amp; Billing</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group ">
+                            <label class="form-label mr-2" for="fv-topics">من</label>
+                            <input type="date" class="form-control" id="phone-no-1" placeholder="يوم / شهر / سنه">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group ">
+                            <label class="form-label mr-2" for="fv-topics">الي</label>
+                            <input type="date" class="form-control" id="phone-no-1" placeholder="يوم / شهر / سنه">
+                        </div>
+                    </div>
+                    <div class="col-12 row justify-content-end mt-1">
+                        <div class="form-group">
+                            <button type="submit" class="btn  btn-primary">بحث</button>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
+        <div class="p-1">
+            <table class="datatable-init nowrap nk-tb-list is-separate" data-auto-responsive="false">
+                <thead>
+                    <tr class="nk-tb-item nk-tb-head">
+                        <th class="nk-tb-col nk-tb-col-check">
+                            <div class="custom-control custom-control-sm custom-checkbox notext">
+                                <input type="checkbox" class="custom-control-input" id="puid">
+                                <label class="custom-control-label" for="puid"></label>
+                            </div>
+                        </th>
+                        <th class="nk-tb-col tb-col-sm"><span>اسم الطيار</span></th>
+                        <th class="nk-tb-col"><span>الشركة المحولة</span></th>
+                        <th class="nk-tb-col"><span>القيمة</span></th>
+                        <th class="nk-tb-col"><span>التاريخ</span></th>
+                    </tr><!-- .nk-tb-item -->
+                </thead>
+                <tbody>
+                    <tr class="nk-tb-item">
+                        <td class="nk-tb-col nk-tb-col-check">
+                            <div class="custom-control custom-control-sm custom-checkbox notext">
+                                <input type="checkbox" class="custom-control-input" id="puid1">
+                                <label class="custom-control-label" for="puid1"></label>
+                            </div>
+                        </td>
+                        <td class="nk-tb-col tb-col-sm">
+                            <span class="tb-product">
+                                <img src="./images/product/a.png" alt="" class="thumb">
+                                <span class="title">محمد علي</span>
+                            </span>
+                        </td>
+                        <td class="nk-tb-col">
+                            <span class="tb-sub">طلبات</span>
+                        </td>
+                        <td class="nk-tb-col">
+                            <span class="tb-lead">EGP 99.49</span>
+                        </td>
+                        <td class="nk-tb-col">
+                            <span class="tb-sub">22/1/2022</span>
+                        </td>
+                   
+                    </tr>
+                    <tr class="nk-tb-item">
+                        <td class="nk-tb-col nk-tb-col-check">
+                            <div class="custom-control custom-control-sm custom-checkbox notext">
+                                <input type="checkbox" class="custom-control-input" id="puid1">
+                                <label class="custom-control-label" for="puid1"></label>
+                            </div>
+                        </td>
+                        <td class="nk-tb-col tb-col-sm">
+                            <span class="tb-product">
+                                <img src="./images/product/a.png" alt="" class="thumb">
+                                <span class="title">احمد محمود</span>
+                            </span>
+                        </td>
+                        <td class="nk-tb-col">
+                            <span class="tb-sub">طلبات</span>
+                        </td>
+                        <td class="nk-tb-col">
+                            <span class="tb-lead">EGP 209.49</span>
+                        </td>
+                        <td class="nk-tb-col">
+                            <span class="tb-sub">10/1/2022</span>
+                        </td>
+                   
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+ 
 
-
-    <table class="datatable-init nowrap nk-tb-list is-separate" data-auto-responsive="false">
-        <thead>
-            <tr class="nk-tb-item nk-tb-head">
-                <th class="nk-tb-col nk-tb-col-check">
-                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                        <input type="checkbox" class="custom-control-input" id="puid">
-                        <label class="custom-control-label" for="puid"></label>
-                    </div>
-                </th>
-                <th class="nk-tb-col tb-col-sm"><span>اسم الطيار</span></th>
-                <th class="nk-tb-col"><span>الشركة المحولة</span></th>
-                <th class="nk-tb-col"><span>القيمة</span></th>
-                <th class="nk-tb-col"><span>التاريخ</span></th>
-            </tr><!-- .nk-tb-item -->
-        </thead>
-        <tbody>
-            <tr class="nk-tb-item">
-                <td class="nk-tb-col nk-tb-col-check">
-                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                        <input type="checkbox" class="custom-control-input" id="puid1">
-                        <label class="custom-control-label" for="puid1"></label>
-                    </div>
-                </td>
-                <td class="nk-tb-col tb-col-sm">
-                    <span class="tb-product">
-                        <img src="./images/product/a.png" alt="" class="thumb">
-                        <span class="title">محمد علي</span>
-                    </span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-sub">طلبات</span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-lead">EGP 99.49</span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-sub">22/1/2022</span>
-                </td>
-           
-            </tr>
-            <tr class="nk-tb-item">
-                <td class="nk-tb-col nk-tb-col-check">
-                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                        <input type="checkbox" class="custom-control-input" id="puid1">
-                        <label class="custom-control-label" for="puid1"></label>
-                    </div>
-                </td>
-                <td class="nk-tb-col tb-col-sm">
-                    <span class="tb-product">
-                        <img src="./images/product/a.png" alt="" class="thumb">
-                        <span class="title">احمد محمود</span>
-                    </span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-sub">طلبات</span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-lead">EGP 209.49</span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-sub">10/1/2022</span>
-                </td>
-           
-            </tr>
-        </tbody>
-    </table><!-- .nk-tb-list -->
 
 </main>
