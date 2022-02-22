@@ -1,12 +1,33 @@
-<!-- <div class="nk-header nk-header-fixed is-light">
-    <app-header></app-header>
-</div> -->
+<div class="row">
+   
+        <div class="myheader col-12">
+            <app-header></app-header>
+        </div>
+        <div class="col-12">
+            
+        <div class="row">
+            <div class="col-2">
+                <div class="leftside">
+                    <app-leftsidebar></app-leftsidebar>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="mycontent ">
+                    <router-outlet ></router-outlet>
+                </div>
+            </div>
+            <div class="col-2 ">
+                <div class="rightside">
+                    <app-rightsidebar></app-rightsidebar>
+                </div>
+            </div>
+        </div>
+        </div>
 
-<div class="nk-sidebar nk-sidebar-fixed is-light " data-content="sidebarMenu">
-    <app-sidebar ></app-sidebar>
 </div>
 
-<div class="nk-content ">
-    <router-outlet ></router-outlet>
-</div>
+
+
+
+
 

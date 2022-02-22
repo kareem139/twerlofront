@@ -1,15 +1,22 @@
-#main{
-    /* padding-top: 5%; */
-    padding-right: 23%;
-    
+#filter{
+    height: 50px;
+    background-color: rgb(194, 183, 183);
+    margin-top: 5px;
+    padding-top: 5px;
+    border-radius: 10px;
 }
-.card .table tr:first-child th, .card .table tr:first-child td {
-    min-width: 190px;
+.data
+{
+  
+    margin-top: 10px;
 }
-.card-head {
-    background-color: #7c7689;
-    height: 45px;
+#sco{
+    min-height: 70vh;
+    max-height: 70vh;
 }
-.card-title {
-    color: #fff;
-}
+.wrapper{
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    overflow-y: scroll;
+  }

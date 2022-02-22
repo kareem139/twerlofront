@@ -1,0 +1,19 @@
+#ul_top_hypers li {
+    display: inline;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+#div_top_hypers {
+    background-color:#eeeeee;
+    display:inline; 
+    margin-top: 10px;     
+}
+#ul_top_hypers li{
+    display: inline;
+}
+.mynav{
+    height: 100%;
+}
+.changenavbtn{
+    background-color: white;
+}

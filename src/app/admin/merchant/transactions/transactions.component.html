@@ -1,101 +1,38 @@
 <main id="main" class="main m-auto mycard">
-    <table class="table table-striped  datatable-init nowrap nk-tb-list is-separate" data-auto-responsive="false">
+
+    <table datatable [dtOptions]="dtOptions" class="row-border hover  w-100">
         <thead>
-            <tr class="nk-tb-item nk-tb-head">
-                <th class="nk-tb-col nk-tb-col-check">
-                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                        <input type="checkbox" class="custom-control-input" id="puid">
-                        <label class="custom-control-label" for="puid"></label>
-                    </div>
-                </th>
+            <tr>
+                <th scope="col">رقم المعاملة</th>
                 <th class="nk-tb-col tb-col-sm"><span>الشركة</span></th>
                 <th class="nk-tb-col"><span>التاريخ</span></th>
                 <th class="nk-tb-col"><span>القيمة</span></th>
                 <th class="nk-tb-col"><span>اسم المستخدم</span></th>
                 <th class="nk-tb-col tb-col-md"><span>الحالة</span></th>
-            </tr><!-- .nk-tb-item -->
+              </tr>
         </thead>
         <tbody>
-            <tr class="nk-tb-item">
-                <td class="nk-tb-col nk-tb-col-check">
-                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                        <input type="checkbox" class="custom-control-input" id="puid1">
-                        <label class="custom-control-label" for="puid1"></label>
-                    </div>
-                </td>
-                <td class="nk-tb-col tb-col-sm">
-                    <span class="tb-product">
-                        <img src="./images/product/a.png" alt="" class="thumb">
-                        <span class="title">Talbat</span>
-                    </span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-sub">22/1/2022</span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-lead">EGP 99.49</span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-sub">احمد حمدي</span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-sub btn-danger p-1">Cancel</span>
-                </td>
-            </tr>
-            <tr class="nk-tb-item">
-                <td class="nk-tb-col nk-tb-col-check">
-                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                        <input type="checkbox" class="custom-control-input" id="puid1">
-                        <label class="custom-control-label" for="puid1"></label>
-                    </div>
-                </td>
-                <td class="nk-tb-col tb-col-sm">
-                    <span class="tb-product">
-                        <img src="./images/product/a.png" alt="" class="thumb">
-                        <span class="title">Talbat</span>
-                    </span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-sub">22/1/2022</span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-lead">EGP 99.49</span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-sub">احمد حمدي</span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-sub btn-success p-1">Active</span>
-                </td>
-            </tr>
-            <tr class="nk-tb-item">
-                <td class="nk-tb-col nk-tb-col-check">
-                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                        <input type="checkbox" class="custom-control-input" id="puid1">
-                        <label class="custom-control-label" for="puid1"></label>
-                    </div>
-                </td>
-                <td class="nk-tb-col tb-col-sm">
-                    <span class="tb-product">
-                        <img src="./images/product/a.png" alt="" class="thumb">
-                        <span class="title">Talbat</span>
-                    </span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-sub">20/2/2022</span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-lead">EGP 300.49</span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-sub">احمد حمدي</span>
-                </td>
-                <td class="nk-tb-col">
-                    <span class="tb-sub btn-success p-1">Active</span>
-                </td>
-            </tr>
+          <tr *ngFor="let post of data">
+            <td>{{ post.id }}</td>
+            <td>{{ post.company }}</td>
+            <td>20-1-2022</td>
+            <td>{{ post.amount }}</td>
+            <td>{{ post.user }}</td>
+            <td>
+                <span *ngIf="post.status==1" class="badge badge-info">
+                         انتطار
+                </span>
+                <span *ngIf="post.status==2" class="badge badge-secondary">
+                        تم المراجعه
+                </span>
+                <span *ngIf="post.status==3" class="badge badge-success">
+                        ناجحه
+                </span>
+            </td>
+          </tr>
         </tbody>
-    </table>
+      </table>
+
     <div class="row  justify-content-end mt-2">
         <div>
             <a routerLink="/company/merchant/listtransaction" class="btn btn-lg btn-danger mr-1 ml-1">رجوع</a>

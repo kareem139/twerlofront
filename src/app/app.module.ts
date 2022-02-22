@@ -23,6 +23,9 @@ import { TransactionstatusComponent } from './admin/merchant/transactionstatus/t
 import { FiltersComponent } from './admin/merchant/filters/filters.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from 'angular-datatables';
+import { PaymentactionsComponent } from './admin/payment/paymentactions/paymentactions.component';
+import { LeftsidebarComponent } from './sharedcomponent/leftsidebar/leftsidebar.component';
+import { RightsidebarComponent } from './sharedcomponent/rightsidebar/rightsidebar.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { DataTablesModule } from 'angular-datatables';
     AddtransactionComponent,
     ListtransactionComponent,
     TransactionstatusComponent,
-    FiltersComponent
+    FiltersComponent,
+    PaymentactionsComponent,
+    LeftsidebarComponent,
+    RightsidebarComponent
   ],
   imports: [
     BrowserModule,

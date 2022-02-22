@@ -1,83 +1,112 @@
+<div  id="filter">
+    <form action="#" class="">
+        <div class="row">
 
-    <main id="main" class="main m-auto mycard">
-
-    <div class="card">
-        <div class="card-inner p-0">
-            <div class="card-head pl-4 pr-4">
-                <h5 class="card-title">المدفوعات</h5>
+            <div class="col-2 m-auto">
+               
+                       
+                        <select class="" placeholder="اختر الشركة" required>
+                            <option value="">Supplier</option>
+                            <option value="fv-gq">General Question</option>
+                            <option value="fv-tq">Tachnical Question</option>
+                            <option value="fv-ab">Account &amp; Billing</option>
+                        </select>
+              
             </div>
-            <form action="#" class="pr-4 pl-4 pb-4">
-                <div class="row g-1">
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <div class="form-control-wrap">
-                                <label class="form-label mr-2" for="full-name-1">الشركات </label>
-                                <select class="form-control form-select" placeholder="اختر الشركة" required>
-                                    <option value="">اختر الشركة</option>
-                                    <option value="fv-gq">General Question</option>
-                                    <option value="fv-tq">Tachnical Question</option>
-                                    <option value="fv-ab">Account &amp; Billing</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <div class="form-control-wrap ">
-                                <label class="form-label mr-2" for="full-name-1">المدفوع منها </label>
-                                <select class="form-control form-select" placeholder="اختر الشركة" required>
-                                    <option value="">اختر الشركة</option>
-                                    <option value="fv-gq">General Question</option>
-                                    <option value="fv-tq">Tachnical Question</option>
-                                    <option value="fv-ab">Account &amp; Billing</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group ">
-                            <label class="form-label mr-2" for="fv-topics">من</label>
-                            <input type="date" class="form-control" id="phone-no-1" placeholder="يوم / شهر / سنه">
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group ">
-                            <label class="form-label mr-2" for="fv-topics">الي</label>
-                            <input type="date" class="form-control" id="phone-no-1" placeholder="يوم / شهر / سنه">
-                        </div>
-                    </div>
-                    <div class="col-12 row justify-content-end mt-1">
-                        <div class="form-group">
-                            <button type="submit" class="btn  btn-primary">بحث</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="p-1">
-            <table datatable [dtOptions]="dtOptions" class="row-border hover  w-100">
-                <thead>
-                    <tr>
-                        <th class="nk-tb-col"><span>رقم العمليه</span></th>
-                        <th class="nk-tb-col tb-col-sm"><span>اسم الطيار</span></th>
-                        <th class="nk-tb-col"><span>الشركة المحولة</span></th>
-                        <th class="nk-tb-col"><span>القيمة</span></th>
-                        <th class="nk-tb-col"><span>التاريخ</span></th>
-                      </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let post of data">
-                    <td>{{ post.rider }}</td>
-                    <td>20-1-2022</td>
-                    <td>{{ post.from }}</td>
-                    <td>{{ post.amount }}</td>
-                    <td>20-1-2022</td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
-    </div>
+            <div class="col-2  m-auto">
+              
+                       
+                        <select class="" placeholder="اختر الشركة" required>
+                            <option value="">Customer</option>
+                            <option value="fv-gq">General Question</option>
+                            <option value="fv-tq">Tachnical Question</option>
+                            <option value="fv-ab">Account &amp; Billing</option>
+                        </select>
+                
+            </div>
+
+            <div class="col-2 m-auto">
+           
+
+                    <input type="text" class=""  placeholder="DateFrom" onblur="(this.type='text')" onfocus="(this.type='date')">
+             
+            </div>
+
+            <div class="col-2 m-auto">
  
+              
+                    <input type="text" class=""  placeholder="DateTo" onblur="(this.type='text')" onfocus="(this.type='date')">
+        
+            </div>
+            <div class="col-2 m-auto">
+     
+                    <button type="submit" class="btn  btn-primary">Search</button>
+           
+            </div>
+        </div>
+    </form>
+</div>
+<div class="data mt-3" id="sco">
+    <table datatable [dtOptions]="dtOptions" class="row-border hover  w-100">
+        <thead>
+            <tr>
+                <th scope="col">Select</th>
+                <th scope="col">TransactionId</th>
+                <th scope="col">Time</th>
+                <th scope="col">Customer</th>
+                <th scope="col">RiderNationalId</th>
+                <th scope="col">SenderNationalId</th>
+                <th scope="col">Status</th>
+                <th scope="col">Amount</th>
+              </tr>
+        </thead>
+        <tbody id="sco">
+          <tr *ngFor="let post of data">
+              <td>
+                  <input type="checkbox">
+              </td>
+            <td>{{ post.id }}</td>
+            <td>20-1-2022</td>
+            <td>{{ post.to }}</td>
+            <td>{{ post.rider }}</td>
+            <td>{{ post.sender }}</td>
+            <td>
+                <span *ngIf="post.status==1" class="badge badge-warning">Pending</span>
+                <span *ngIf="post.status==2" class="badge badge-danger">Canceled</span>
+                <span *ngIf="post.status==3" class="badge badge-success">Success</span>
+            </td>
+            <td>{{ post.amount }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+<div  id="filter">
+    <form action="#" class="">
+        <div class="row pt-1">
+            <div class="col-2 m-auto float-right">
+                <h5>  Selected Count: <span class="badge badge-info float-right">0</span></h5>
+             
+         
+          </div>
+
+            <div class="col-2 m-auto">
+                
+                <select class="" placeholder="اختر الشركة" style="height: 30px;" required>
+                    <option value="">Actions</option>
+                    <option value="fv-gq">General Question</option>
+                    <option value="fv-tq">Tachnical Question</option>
+                    <option value="fv-ab">Account &amp; Billing</option>
+                </select>
+            </div>
+            <div class="col-2  m-auto">
+              
+                <button type="submit" class="btn  btn-info" style="height: 35px;">Save</button>
+                
+            </div>
 
 
-</main>
+        </div>
+    </form>
+</div>
+

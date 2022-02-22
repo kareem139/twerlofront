@@ -20,6 +20,15 @@ export class MerchantpaymentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.dtOptions = {
+      scrollY:"60vh",
+    scrollCollapse:true,
+    paging:false,
+    processing:false,
+    info:false,
+    responsive:true,
+    tabIndex:1
+    };
   }
 
 }

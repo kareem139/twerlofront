@@ -14,24 +14,53 @@ export class PaymentaddComponent implements OnInit {
 
   constructor(private service:PaymentService,private router:Router,private companyservice:CompanyService,
     private http:HttpClient) { }
-  dtOptions: DataTables.Settings = {};
+  dtOptions: DataTables.Settings = {
+    scrollY:"80vh",
+    scrollCollapse:true,
+    paging:false
+  };
 
   data:any=[
-    {id:2,to:"Mac",rider:"احمد مصطفي السيد",amount:500},
-    {id:3,to:"Marsol",rider:" مصطفي السيد",amount:300},
-    {id:4,to:"Mac",rider:"احمد  السيد",amount:200},
-    {id:5,to:"Marsol",rider:"احمد مصطفي ",amount:400},
-    {id:6,to:"Mac",rider:"احمد محمد ",amount:500},
-    {id:7,to:"Mac",rider:" محمد السيد",amount:900},
+    {id:112345678912345,to:"Mac",rider:12345678912345,amount:50000,status:1,sender:12345678912345},
+    {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:300,status:1,sender:12345678912345},
+    {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:1,sender:12345678912345},
+    {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:1,sender:12345678912345},
+    {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345},
+    {id:712345678912345,to:"Mac",rider:12345678912345,amount:1000,status:1,sender:12345678912345},
+    {id:112345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345},
+    {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:3000,status:1,sender:12345678912345},
+    {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:1,sender:12345678912345},
+    {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:1,sender:12345678912345},
+    {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345},
+    {id:712345678912345,to:"Mac",rider:12345678912345,amount:900,status:1,sender:12345678912345},
+    {id:112345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345},
+    {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:300,status:1,sender:12345678912345},
+    {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:1,sender:12345678912345},
+    {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:1,sender:12345678912345},
+    {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345},
+    {id:712345678912345,to:"Mac",rider:12345678912345,amount:900,status:1,sender:12345678912345},
+    {id:112345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345},
+    {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:300,status:1,sender:12345678912345},
+    {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:1,sender:12345678912345},
+    {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:1,sender:12345678912345},
+    {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345},
+    {id:712345678912345,to:"Mac",rider:12345678912345,amount:900,status:1,sender:12345678912345},
   ];
   listofcompanies:Array<any>=[]
   random:string="";
-
+  selectedcounter=0;
   ngOnInit(): void {
     this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 5,
-      processing: true
+      scrollY:"60vh",
+    scrollCollapse:true,
+    paging:false,
+    processing:false,
+    info:false,
+    responsive:true,
+    tabIndex:1,
+    search:false,
+   searching:false,
+   stripeClasses:["rr"]
     };
   //   this.http.get('http://jsonplaceholder.typicode.com/posts')
   //   .subscribe(posts => {
@@ -139,6 +168,14 @@ export class PaymentaddComponent implements OnInit {
       console.log(err);
       
     })
+  }
+
+  
+  changecounter(e:any){
+    document.getElementById("k")?.parentElement?.parentElement;
+    var ele=e.target.parentElement?.parentElement;
+    ele.classList.toggleClass("selectrow")
+    this.selectedcounter+=1;
   }
 
 }
