@@ -50,25 +50,28 @@
     <table datatable [dtOptions]="dtOptions" class="row-border hover  w-100">
         <thead>
             <tr>
-                <th scope="col">Select</th>
-                <th scope="col">TransactionId</th>
-                <th scope="col">Date</th>
-                <th scope="col">Customer</th>
-                <th scope="col">RiderNationalId</th>
-                <th scope="col">SenderNationalId</th>
-                <th scope="col">Status</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Time</th>
+                <th class="col">Select<span class="badge badge-number">{{selected}}</span></th>
+                <th class="col">TransactionId</th>
+                <th class="col">Date</th>
+                <th class="col">Customer</th>
+                <th class="col">Supplier</th>
+                <th class="col">RiderNationalId</th>
+                <th class="col">SenderNationalId</th>
+                <th class="col">Status</th>
+                <th class="col">Amount</th>
+                <th class="col">Time</th>
+                <th>PaymentType</th>
               </tr>
         </thead>
         <tbody id="sco">
           <tr *ngFor="let post of data">
               <td>
-                  <input type="checkbox">
+                  <input type="checkbox" class="checkrow" (change)="calculateselect($event.target)">
               </td>
             <td>{{ post.id }}</td>
             <td>20-1-2022</td>
             <td>{{ post.to }}</td>
+            <td>{{ post.from }}</td>
             <td>{{ post.rider }}</td>
             <td>{{ post.sender }}</td>
             <td>
@@ -78,6 +81,7 @@
             </td>
             <td>{{ post.amount |currency:"EGP" }}</td>
             <td>20:22:02 AM</td>
+            <td>{{post.type}}</td>
           </tr>
         </tbody>
       </table>
@@ -86,25 +90,28 @@
 <div  id="filter">
     <form action="#" class="">
         <div class="row pt-1">
-            <div class="col-2 m-auto float-right">
-                <h5>  Selected Count: <span class="badge badge-info float-right">0</span></h5>
-             
-         
-          </div>
-
-            <div class="col-2 m-auto">
+            
+            
+            <div class="col-2  m-auto">
+              
+                <button type="submit" class="btn  btn-success" style="height: 35px;">Done</button>
                 
-                <select class="" placeholder="اختر الشركة" style="height: 30px;" required>
-                    <option value="">Actions</option>
-                    <option class="text-warrning" value="fv-gq">Pending</option>
-                    <option value="fv-tq">Done</option>
-                    <option value="fv-ab">Error</option>
-                    <option value="fv-ab">Canceled</option>
-                </select>
+            </div>
+            
+            <div class="col-2  m-auto">
+              
+                <button type="submit" class="btn  btn-danger" style="height: 35px;">Error</button>
+                
+            </div>
+            
+            <div class="col-2  m-auto">
+              
+                <button type="submit" class="btn  btn-warning" style="height: 35px;">Pending</button>
+                
             </div>
             <div class="col-2  m-auto">
               
-                <button type="submit" class="btn  btn-info" style="height: 35px;">Save</button>
+                <button type="submit" class="btn  btn-primary" style="height: 35px;">Canceled</button>
                 
             </div>
 

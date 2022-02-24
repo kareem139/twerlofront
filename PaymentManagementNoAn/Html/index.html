@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <base href="../">
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
+      <!-- All Generated styles form dashlite -->
+      <link rel="stylesheet" href="assets/css/dashlite.css">
+      <!-- This file is for you to include your own styles -->
+      <link rel="stylesheet" href="assets/css/theme.css">
+
+      <!-- Premade Skin style -->
+      <link rel="stylesheet" href="assets/css/skins/theme-{blue|red|...}.css">
+          <!-- StyleSheets  -->
+    <!-- <link rel="stylesheet" href="./assets/css/dashlite.css?ver=2.2.0">
+    <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=2.2.0"> -->
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/my.css">
+    <link rel="stylesheet" href="assets/datatables.min.css">
+</head>
+
+<body class="nk-body bg-lighter npc-default has-sidebar ">
+    <div class="nk-app-root">
+        <div class="row">
+   
+            <div class="myheader col-12">
+                <div class="row mynav">
+                    <div class="col-2">
+                        <img src="assets/images/IT-Blocks-logo.png" alt="">
+                    </div>
+                    <div class="col-8 m-auto">
+                        <div id="div_top_hypers ">
+                            <ul id="ul_top_hypers">
+                                <li><a  class="a_top_hypers btn btn-secodery mynavbtn" (click)="OverOnNavLi($event)"> Suppliers</a></li>
+                                <li><a  class="a_top_hypers btn btn-secodery mynavbtn" (click)="OverOnNavLi($event)"> Customers</a></li>
+                                <li><a  class="a_top_hypers btn btn-secodery mynavbtn" (click)="OverOnNavLi($event)"> Transactions</a></li>
+                                <li><a  class="a_top_hypers btn btn-secodery mynavbtn" (click)="OverOnNavLi($event)"> Preferences</a></li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div id="div_top_hypers float-right">
+                            <ul id="ul_top_hypers">
+                               
+                                <li><a  class="a_top_hypers btn btn-outline-info " (click)="OverOnNavLi($event)"> logout</a></li>
+                            </ul>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-12">
+                
+            <div class="row">
+                <div class="col-2">
+                    <div class="leftside">
+                        <div class="row">
+                            <div class="col-12 mt-3">
+                                <h3 class="badge badge-info mb-0 ml-1 he">Filters</h3>
+                                <div class="data">
+                                    <h5 for="">Supplier : <span class="badge badge-info float-right">EgyptPost</span></h5>
+                                    <h5 for="">Customer : <span class="badge badge-info float-right">Mac</span></h5>
+                                    <h5 for="">DateFrom :<span class="badge badge-info float-right">22-1-2022</span> </h5>
+                                    <h5 for="">DateTo : <span class="badge badge-info float-right">23-1-2022</span></h5>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <h3 class="badge badge-white mb-0 ml-1 he" >Balances</h3>
+                                <div class="data">
+                                    <h5 for="">Current Balance : <span class="badge badge-info float-right">0</span></h5>
+                                    <h5 for="">Today : <span class="badge badge-info float-right">0</span></h5>
+                                    <h5 for="">LastWeek : <span class="badge badge-info float-right">0</span></h5>
+                                    <h5 for="">LastMonth : <span class="badge badge-info float-right"></span></h5>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <h3 class="badge badge-info mb-0 ml-1 he">Counters</h3>
+                                <div class="data">
+                                    <h5 for="">Pending : <span class="badge badge-warning float-right">10</span></h5>
+                                    <h5 for="">Done : <span class="badge badge-success float-right">10</span></h5>
+                                    <h5 for="">Error : <span class="badge badge-danger float-right">3</span></h5>
+                                    <h5 for="">Canceled : <span class="badge badge-primary float-right">2</span></h5>
+                                    <!-- <h5 for="">Total : <span class="badge badge-info float-right">0</span></h5> -->
+                                </div>
+                            </div>
+                            
+                            </div>
+                            
+                            
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="mycontent ">
+                        <div  id="filter">
+                            <form action="#" class="">
+                                <div class="row">
+                        
+                                    <div class="col-2 m-auto">
+                                       
+                                               
+                                                <select class="" placeholder="اختر الشركة" required>
+                                                    <option value="">Supplier</option>
+                                                    <option value="fv-gq">General Question</option>
+                                                    <option value="fv-tq">Tachnical Question</option>
+                                                    <option value="fv-ab">Account &amp; Billing</option>
+                                                </select>
+                                      
+                                    </div>
+                                    <div class="col-2  m-auto">
+                                      
+                                               
+                                                <select class="" placeholder="اختر الشركة" required>
+                                                    <option value="">Customer</option>
+                                                    <option value="fv-gq">General Question</option>
+                                                    <option value="fv-tq">Tachnical Question</option>
+                                                    <option value="fv-ab">Account &amp; Billing</option>
+                                                </select>
+                                        
+                                    </div>
+                        
+                                    <div class="col-2 m-auto">
+                                   
+                        
+                                            <input type="text" class=""  placeholder="DateFrom" onblur="(this.type='text')" onfocus="(this.type='date')">
+                                     
+                                    </div>
+                        
+                                    <div class="col-2 m-auto">
+                         
+                                      
+                                            <input type="text" class=""  placeholder="DateTo" onblur="(this.type='text')" onfocus="(this.type='date')">
+                                
+                                    </div>
+                                    <div class="col-2 col-offset-2 m-auto">
+                             
+                                            <button type="submit" class="btn  btn-info" style="height: 32px;">Search</button>
+                                   
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="data mt-3" id="sco">
+                            <table id="datatable"  class="display" style="width: 100%;">
+                                <thead>
+                                    <!-- <tr>
+                                        <th scope="col">Select</th>
+                                        <th scope="col">TransactionId</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Customer</th>
+                                        <th scope="col">RiderNationalId</th>
+                                        <th scope="col">SenderNationalId</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Time</th>
+                                      </tr> -->
+                                </thead>
+                                <tbody id="sco">
+                                  
+                                </tbody>
+                              </table>
+                        </div>
+                        
+                        <div  id="filter">
+                            <form action="#" class="">
+                                <div class="row pt-1">
+                                  
+                        
+                                    
+                                    <div class="col-2  m-auto">
+                                      
+                                        <button type="submit" class="btn  btn-info" style="height: 35px;">Done</button>
+                                        
+                                    </div>
+                                    <div class="col-2  m-auto">
+                                      
+                                        <button type="submit" class="btn  btn-info" style="height: 35px;">Error</button>
+                                        
+                                    </div>
+                                    <div class="col-2  m-auto">
+                                      
+                                        <button type="submit" class="btn  btn-info" style="height: 35px;">Cancel</button>
+                                        
+                                    </div>
+                                    <div class="col-2  m-auto">
+                                      
+                                        <button type="submit" class="btn  btn-info" style="height: 35px;">Pending</button>
+                                        
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-2 ">
+                    <div class="rightside">
+                        <div class="row">
+                            <div class="col-12 mt-3">
+                                <!-- <div class="row">
+                                    <div class="col-4"></div>
+                                    <div class="col-4"></div>
+                                    <div class="col-4 float-left">
+                                        <h3 class="badge badge-info mb-0 ml-1 he">Filters</h3>
+                                    </div>
+                                </div> -->
+                               
+                                <div class="data">
+                                    <h5 for="">Supplier : <span class="badge badge-info float-right">EgyptPost</span></h5>
+                                    <h5 for="">Customer : <span class="badge badge-info float-right">Mac</span></h5>
+                                    <h5 for="">DateFrom :<span class="badge badge-info float-right">22-1-2022</span> </h5>
+                                    <h5 for="">DateTo : <span class="badge badge-info float-right">23-1-2022</span></h5>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                        
+                         
+                                <div class="data">
+                                    <h5 for="">Current Balance : <span class="badge badge-info float-right">0</span></h5>
+                                    <h5 for="">Today : <span class="badge badge-info float-right">0</span></h5>
+                                    <h5 for="">LastWeek : <span class="badge badge-info float-right">0</span></h5>
+                                    <h5 for="">LastMonth : <span class="badge badge-info float-right">0</span></h5>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                        
+                                <div class="data">
+                                    <h5 for="">Pending : <span class="badge badge-warning float-right">0</span></h5>
+                                    <h5 for="">Done : <span class="badge badge-success float-right">0</span></h5>
+                                    <h5 for="">Error : <span class="badge badge-danger float-right">0</span></h5>
+                                    <h5 for="">Canceled : <span class="badge badge-primary float-right">0</span></h5>
+                                    <!-- <h5 for="">Total : <span class="badge badge-info float-right">0</span></h5> -->
+                                </div>
+                            </div>
+                        
+                            <div class="col-12">
+                              
+                                <div class="data">
+                                    <h5 for="">Pending : <span class="badge badge-warning float-right">0</span></h5>
+                                    <h5 for="">Done : <span class="badge badge-success float-right">0</span></h5>
+                                    <h5 for="">Error : <span class="badge badge-danger float-right">0</span></h5>
+                                    <h5 for="">Canceled : <span class="badge badge-primary float-right">0</span></h5>
+                                    <!-- <h5 for="">Total : <span class="badge badge-info float-right">0</span></h5> -->
+                                </div>
+                            </div>
+                        
+                            </div>
+                            
+                            
+                    </div>
+                </div>
+            </div>
+            </div>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    </div>
+    <!-- app-root @e -->
+    <!-- JavaScript -->
+    <script src="assets/dataTables.jqueryui.js"></script>
+    <script src="assets/dataTables.jqueryui.min.js"></script>
+    <script src="assets/datatables.min.js"></script>
+    <script src="assets/js/bundle.js?ver=2.2.0"></script>
+    <script src="assets/js/scripts.js?ver=2.2.0"></script>
+    <script src="assets/js/charts/chart-ecommerce.js?ver=2.2.0"></script>
+    <script>
+        $(document).ready(function() {
+    $('#datatable').DataTable({
+        "scrollY":        "55vh",
+        "info":     false,
+
+        "scrollCollapse": true,
+
+        "paging":         false,
+        data: dataset,
+        columns: [
+            { title: "TransactionId" },
+            { title: "Date" },
+            { title: "Customer" },
+            { title: "RiderNationalId" },
+            { title: "SenderNationalId" },
+            { title: "Status" },
+            { title: "Amount" },
+            { title: "Time" }
+        ]
+    });
+} );
+
+// <th scope="col">Select</th>
+//                                         <th scope="col">TransactionId</th>
+//                                         <th scope="col">Date</th>
+//                                         <th scope="col">Customer</th>
+//                                         <th scope="col">RiderNationalId</th>
+//                                         <th scope="col">SenderNationalId</th>
+//                                         <th scope="col">Status</th>
+//                                         <th scope="col">Amount</th>
+//                                         <th scope="col">Time</th>
+
+var dataset=[
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
+]
+    </script>
+</body>
+
+</html>
