@@ -52,15 +52,16 @@ export class PaymentaddComponent implements OnInit {
   ngOnInit(): void {
     this.dtOptions = {
       scrollY:"60vh",
+      scrollX:true,
     scrollCollapse:true,
     paging:false,
     processing:false,
     info:false,
-    responsive:true,
+    
     tabIndex:1,
     search:false,
    searching:false,
-   stripeClasses:["rr"]
+   
     };
   //   this.http.get('http://jsonplaceholder.typicode.com/posts')
   //   .subscribe(posts => {

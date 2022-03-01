@@ -40,7 +40,7 @@
             </div>
             <div class="col-2 col-offset-2 m-auto">
      
-                    <button type="submit" class="btn  btn-info" style="height: 32px;">Search</button>
+                    <button type="button"  style="height: 30px;">Search</button>
            
             </div>
         </div>
@@ -52,7 +52,7 @@
             <tr>
                 <th class="col">Select<span class="badge badge-number">{{selected}}</span></th>
                 <th class="col">TransactionId</th>
-                <th class="col">Date</th>
+                <th class="col">Payment Date</th>
                 <th class="col">Customer</th>
                 <th class="col">Supplier</th>
                 <th class="col">RiderNationalId</th>
@@ -64,7 +64,7 @@
               </tr>
         </thead>
         <tbody id="sco">
-          <tr *ngFor="let post of data">
+          <tr *ngFor="let post of data" style="height: 15px;font-size: 10px;">
               <td>
                   <input type="checkbox" class="checkrow" (change)="calculateselect($event.target)">
               </td>
@@ -94,24 +94,24 @@
             
             <div class="col-2  m-auto">
               
-                <button type="submit" class="btn  btn-success" style="height: 35px;">Done</button>
+                <button type="button"  style="height: 30px;">Done</button>
                 
             </div>
             
             <div class="col-2  m-auto">
               
-                <button type="submit" class="btn  btn-danger" style="height: 35px;">Error</button>
+                <button type="button"  style="height: 30px;">Error</button>
                 
             </div>
             
             <div class="col-2  m-auto">
               
-                <button type="submit" class="btn  btn-warning" style="height: 35px;">Pending</button>
+                <button type="button"  style="height: 30px;">Pending</button>
                 
             </div>
             <div class="col-2  m-auto">
               
-                <button type="submit" class="btn  btn-primary" style="height: 35px;">Canceled</button>
+                <button type="button"  style="height: 30px;">Canceled</button>
                 
             </div>
 

@@ -20,9 +20,12 @@
     overflow-x: scroll;
     overflow-y: scroll;
   }
-  .rr{
-      height: 10px;
-  }
+ 
   .badge{
     color: black;
+}
+
+.even .odd{
+    height: 15px;
+    font-size: 10px;
 }
