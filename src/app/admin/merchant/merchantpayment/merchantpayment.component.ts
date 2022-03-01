@@ -27,7 +27,8 @@ export class MerchantpaymentComponent implements OnInit {
     processing:false,
     info:false,
     responsive:true,
-    tabIndex:1
+    tabIndex:1,
+    scrollX:true
     };
   }
 
