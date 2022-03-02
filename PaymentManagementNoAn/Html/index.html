@@ -2,230 +2,570 @@
 <html lang="zxx" class="js">
 
 <head>
-    <base href="../">
-    <meta charset="utf-8">
-    <meta name="author" content="Softnio">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
-    
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  
-    <!-- Google Fonts -->
-    <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  
-      <!-- All Generated styles form dashlite -->
-      <link rel="stylesheet" href="assets/css/dashlite.css">
-      <!-- This file is for you to include your own styles -->
-      <link rel="stylesheet" href="assets/css/theme.css">
+  <base href="../">
+  <meta charset="utf-8">
+  <meta name="author" content="Softnio">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+    content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
 
-      <!-- Premade Skin style -->
-      <link rel="stylesheet" href="assets/css/skins/theme-{blue|red|...}.css">
-          <!-- StyleSheets  -->
-    <!-- <link rel="stylesheet" href="./assets/css/dashlite.css?ver=2.2.0">
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- All Generated styles form dashlite -->
+  <link rel="stylesheet" href="assets/css/dashlite.css">
+  <!-- This file is for you to include your own styles -->
+  <link rel="stylesheet" href="assets/css/theme.css">
+
+  <!-- Premade Skin style -->
+  <link rel="stylesheet" href="assets/css/skins/theme-{blue|red|...}.css">
+  <!-- StyleSheets  -->
+  <!-- <link rel="stylesheet" href="./assets/css/dashlite.css?ver=2.2.0">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=2.2.0"> -->
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="assets/my.css">
-    <link rel="stylesheet" href="assets/datatables.min.css">
+  <link rel="stylesheet" href="assets/my.css">
+  <link rel="stylesheet" href="assets/datatables.min.css">
+  <link rel="stylesheet" href="assets/datajsfile.css">
 </head>
 
 <body class="nk-body bg-lighter npc-default has-sidebar ">
-    <div class="nk-app-root">
-        <div class="row">
-   
-            <div class="myheader col-12">
-                <div class="row mynav">
-                    <div class="col-2">
-                        <img src="assets/images/IT-Blocks-logo.png" alt="">
-                    </div>
-                    <div class="col-8 m-auto">
-                        <div id="div_top_hypers ">
-                            <ul id="ul_top_hypers">
-                                <li><a  class="a_top_hypers btn btn-secodery mynavbtn" (click)="OverOnNavLi($event)"> Suppliers</a></li>
-                                <li><a  class="a_top_hypers btn btn-secodery mynavbtn" (click)="OverOnNavLi($event)"> Customers</a></li>
-                                <li><a  class="a_top_hypers btn btn-secodery mynavbtn" (click)="OverOnNavLi($event)"> Transactions</a></li>
-                                <li><a  class="a_top_hypers btn btn-secodery mynavbtn" (click)="OverOnNavLi($event)"> Preferences</a></li>
-                               
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div id="div_top_hypers float-right">
-                            <ul id="ul_top_hypers">
-                               
-                                <li><a  class="a_top_hypers btn btn-outline-info " (click)="OverOnNavLi($event)"> logout</a></li>
-                            </ul>
-                    </div>
-                </div>
-                
+  <div class="nk-app-root">
+    <div class="row">
+
+      <div class="myheader col-12">
+        <div class="row mynav">
+          <div class="col-2 pt-2">
+            <img src="images/it-blocks-logo.png" alt="here">
+          </div>
+          <div class="col-8 m-auto">
+            <div id="div_top_hypers ">
+              <ul id="ul_top_hypers" style="text-align:center">
+                <li><a class="a_top_hypers btn btn-secodery mynavbtn navLinks" (click)="OverOnNavLi($event)">
+                    Suppliers</a></li>
+                <li><a class="a_top_hypers btn btn-secodery mynavbtn navLinks" (click)="OverOnNavLi($event)">
+                    Customers</a></li>
+                <li><a class="a_top_hypers btn btn-secodery mynavbtn navLinks" (click)="OverOnNavLi($event)">
+                    Transactions</a></li>
+                <li><a class="a_top_hypers btn btn-secodery mynavbtn navLinks" (click)="OverOnNavLi($event)">
+                    Preferences</a></li>
+
+              </ul>
             </div>
-            <div class="col-12">
-                
-            <div class="row">
-                <div class="col-2">
-                    <div class="leftside">
-                        <div class="row">
-                            <div class="col-12 mt-3">
-                                <h3 class=" mb-0 ml-1 he">Filters</h3>
-                                <div class="data">
-                                    <h5 for="">Supplier : <span >EgyptPost</span></h5>
-                                    <h5 for="">Customer : <span>Mac</span></h5>
-                                    <h5 for="">DateFrom :<span >22-1-2022</span> </h5>
-                                    <h5 for="">DateTo : <span >23-1-2022</span></h5>
-                                </div>
-                            </div>
-                            
-                            <div class="col-12">
-                                <h3 class=" mb-0 ml-1 he" >Balances</h3>
-                                <div class="data">
-                                    <h5 for="">Current Balance : <span class="badge badge-number">0</span></h5>
-                                    <h5 for="">Today : <span class="badge badge-number">0</span ></h5>
-                                    <h5 for="">LastWeek : <span class="badge badge-number">0</span></h5>
-                                    <h5 for="">LastMonth : <span class="badge badge-number">0</span></h5>
-                                </div>
-                            </div>
-                            
-                            <div class="col-12">
-                                <h3 class=" mb-0 ml-1 he">Counters</h3>
-                                <div class="data">
-                                    <h5 for="">Pending : <span class="badge badge-number">10</span></h5>
-                                    <h5 for="">Done : <span class="badge badge-number">10</span></h5>
-                                    <h5 for="">Error : <span class="badge badge-number">3</span></h5>
-                                    <h5 for="">Canceled : <span class="badge badge-number">2</span></h5>
-                                    <!-- <h5 for="">Total : <span class="badge badge-info float-right">0</span></h5> -->
-                                </div>
-                            </div>
-                            
-                            </div>
-                            
-                            
-                            
-                            
+          </div>
+          <div class="col-2 pt-2">
+            <div id="div_top_hypers float-right">
+              <ul id="ul_top_hypers">
+
+                <li><a class="a_top_hypers btn btn-outline-info " (click)="OverOnNavLi($event)"> logout</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-12">
+
+          <div class="row">
+            <div class="col-2">
+              <div class="leftside">
+                <div class="row">
+                  <div class="col-12 mt-3">
+                    <h3 class=" mb-0 ml-1 he">Filters</h3>
+                    <div class="data">
+                      <h5 for="">Supplier : <span>EgyptPost</span></h5>
+                      <h5 for="">Customer : <span>Mac</span></h5>
+                      <h5 for="">DateFrom :<span>22-1-2022</span> </h5>
+                      <h5 for="">DateTo : <span>23-1-2022</span></h5>
                     </div>
-                </div>
-                <div class="col-8">
-                    <div class="mycontent ">
-                        <div  id="filter">
-                            <form action="#" class="">
-                                <div class="row">
-                        
-                                    <div class="col-2 m-auto">
-                                       
-                                               
-                                                <select class="" placeholder="اختر الشركة" required>
-                                                    <option value="">Supplier</option>
-                                                    <option value="fv-gq">General Question</option>
-                                                    <option value="fv-tq">Tachnical Question</option>
-                                                    <option value="fv-ab">Account &amp; Billing</option>
-                                                </select>
-                                      
-                                    </div>
-                                    <div class="col-2  m-auto">
-                                      
-                                               
-                                                <select class="" placeholder="اختر الشركة" required>
-                                                    <option value="">Customer</option>
-                                                    <option value="fv-gq">General Question</option>
-                                                    <option value="fv-tq">Tachnical Question</option>
-                                                    <option value="fv-ab">Account &amp; Billing</option>
-                                                </select>
-                                        
-                                    </div>
-                        
-                                    <div class="col-2 m-auto">
-                                   
-                        
-                                            <input type="text" class=""  placeholder="DateFrom" onblur="(this.type='text')" onfocus="(this.type='date')">
-                                     
-                                    </div>
-                        
-                                    <div class="col-2 m-auto">
-                         
-                                      
-                                            <input type="text" class=""  placeholder="DateTo" onblur="(this.type='text')" onfocus="(this.type='date')">
-                                
-                                    </div>
-                                    <div class="col-2 col-offset-2 m-auto">
-                             
-                                            <button type="button"  style="height: 30px;">Search</button>
-                                   
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="data mt-3" id="sco">
-                            <table id="datatable"  class="display" style="width: 100%;">
-                                <thead>
-                                    <!-- <tr>
-                                        <th scope="col">Select</th>
-                                        <th scope="col">TransactionId</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Customer</th>
-                                        <th scope="col">RiderNationalId</th>
-                                        <th scope="col">SenderNationalId</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Amount</th>
-                                        <th scope="col">Time</th>
-                                      </tr> -->
-                                </thead>
-                                <tbody id="sco">
-                                  
-                                </tbody>
-                              </table>
-                        </div>
-                        
-                        <div  id="filter">
-                            <form action="#" class="">
-                                <div class="row pt-1">
-                                  
-                        
-                                    
-                                    <div class="col-2  m-auto">
-                                      
-                                        <button type="button"  style="height: 30px;">Done</button>
-                                        
-                                    </div>
-                                    <div class="col-2  m-auto">
-                                      
-                                        <button type="button"  style="height: 30px;">Error</button>
-                                        
-                                    </div>
-                                    <div class="col-2  m-auto">
-                                      
-                                        <button type="button"  style="height: 30px;">Cancel</button>
-                                        
-                                    </div>
-                                    <div class="col-2  m-auto">
-                                      
-                                        <button type="button"  style="height: 30px;">Pending</button>
-                                        
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        
+                  </div>
+
+                  <div class="col-12">
+                    <h3 class=" mb-0 ml-1 he">Balances</h3>
+                    <div class="data">
+                      <h5 for="">Current Balance : <span class="bagde-icon badge-number">0</span></h5>
+                      <h5 for="">Today : <span class="bagde-icon badge-number">0</span></h5>
+                      <h5 for="">LastWeek : <span class="bagde-icon badge-number">0</span></h5>
+                      <h5 for="">LastMonth : <span class="bagde-icon badge-number">0</span></h5>
                     </div>
+                  </div>
+
+                  <div class="col-12">
+                    <h3 class=" mb-0 ml-1 he">Counters</h3>
+                    <div class="data">
+                      <h5 for="">Pending : <span class="bagde-icon badge-number">10</span></h5>
+                      <h5 for="">Done : <span class="bagde-icon badge-number">10</span></h5>
+                      <h5 for="">Error : <span class="bagde-icon badge-number">3</span></h5>
+                      <h5 for="">Canceled : <span class="bagde-icon badge-number">2</span></h5>
+                      <!-- <h5 for="">Total : <span class="badge badge-info float-right">0</span></h5> -->
+                    </div>
+                  </div>
+
                 </div>
-                <div class="col-2 ">
-                    <div class="rightside">
-                        <div class="row" dir="rtl">
-                            <div class="col-12 mt-3">
-                                
-                                <h3 class=" mb-0 mr-2 he" >Mac</h3>
-                                <div class="data">
-                                    <h5 for=""><span class="badge badge-number float-left">0</span>TotalPayments</h5>
-                                    <h5 for=""><span class="badge badge-number float-left">0</span>Financial dues</h5>
-                                </div>
-                            </div>
-                            
-                            <!-- <div class="col-12">
-                        
-                         
+
+
+
+
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="mycontent ">
+                <div id="filter">
+                  <form action="#" class="">
+                    <div class="row">
+
+                      <div class="col-2 m-auto">
+
+
+                        <select class="" placeholder="اختر الشركة" required>
+                          <option value="">Supplier</option>
+                          <option value="fv-gq">General Question</option>
+                          <option value="fv-tq">Tachnical Question</option>
+                          <option value="fv-ab">Account &amp; Billing</option>
+                        </select>
+
+                      </div>
+                      <div class="col-2  m-auto">
+
+
+                        <select class="" placeholder="اختر الشركة" required>
+                          <option value="">Customer</option>
+                          <option value="fv-gq">General Question</option>
+                          <option value="fv-tq">Tachnical Question</option>
+                          <option value="fv-ab">Account &amp; Billing</option>
+                        </select>
+
+                      </div>
+
+                      <div class="col-2 m-auto">
+
+
+                        <input type="text" class="" placeholder="DateFrom" onblur="(this.type='text')"
+                          onfocus="(this.type='date')">
+
+                      </div>
+
+                      <div class="col-2 m-auto">
+
+
+                        <input type="text" class="" placeholder="DateTo" onblur="(this.type='text')"
+                          onfocus="(this.type='date')">
+
+                      </div>
+                      <div class="col-2 col-offset-2 m-auto">
+
+                        <button type="button" style="height: 30px;">Search</button>
+
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="data mt-3" id="sco">
+                  <table id="datatable" class="display" style="width: 100%;">
+                    <thead>
+                      <th class="col">Select<span class="badge badge-number"></span></th>
+                      <th class="col">TransactionId</th>
+                      <th class="col">Payment Date</th>
+                      <th class="col">Customer</th>
+                      <th class="col">Supplier</th>
+                      <th class="col">RiderNationalId</th>
+                      <th class="col">SenderNationalId</th>
+                      <th class="col">Status</th>
+                      <th class="col">Amount</th>
+                      <th class="col">Time</th>
+                      <th>PaymentType</th>
+                    </thead>
+                    <tbody id="sco">
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="odd">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow select"></td>
+                        <td>112345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-warning">Pending</span>
+                        </td>
+                        <td>EGP50,000.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="even">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>312345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Marsol</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-warning">Pending</span>
+                        </td>
+                        <td>EGP300.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="odd">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>412345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-warning">Pending</span></td>
+                        <td>EGP200.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="even">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>512345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Marsol</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td>
+                          <span class="badge badge-success">Success</span></td>
+                        <td>EGP400.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="odd">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>612345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td>
+                          <span class="badge badge-danger">Canceled</span></td>
+                        <td>EGP500.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="even">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>712345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-success">Success</span>
+                        </td>
+                        <td>EGP1,000.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="odd">
+                        <td class="sorting_1">
+                          <input type="checkbox" class="checkrow"></td>
+                        <td>112345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-success">Success</span></td>
+                        <td>EGP500.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="even">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>312345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Marsol</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-warning">Pending</span></td>
+                        <td>EGP3,000.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="odd">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>412345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-warning">Pending</span>
+                        </td>
+                        <td>EGP200.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="even">
+                        <td class="sorting_1">
+                          <input type="checkbox" class="checkrow"></td>
+                        <td>512345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Marsol</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-danger">Canceled</span></td>
+                        <td>EGP400.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="odd">
+                        <td class="sorting_1">
+                          <input type="checkbox" class="checkrow"></td>
+                        <td>612345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-success">Success</span></td>
+                        <td>EGP500.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="even">
+                        <td class="sorting_1">
+                          <input type="checkbox" class="checkrow"></td>
+                        <td>712345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-success">Success</span></td>
+                        <td>EGP900.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="odd">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>112345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td>
+                          <span class="badge badge-danger">Canceled</span></td>
+                        <td>EGP500.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="even">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>312345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Marsol</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-danger">Canceled</span></td>
+                        <td>EGP300.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="odd">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>412345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-warning">Pending</span>
+                        </td>
+                        <td>EGP200.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="even">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>512345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Marsol</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-warning">Pending</span>
+                        </td>
+                        <td>EGP400.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="odd">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>612345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-warning">Pending</span>
+                        </td>
+                        <td>EGP500.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="even">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>712345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-warning">Pending</span>
+                        </td>
+                        <td>EGP900.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="odd">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>112345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-warning">Pending</span>
+                        </td>
+                        <td>EGP500.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="even">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>312345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Marsol</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-warning">Pending</span>
+                        </td>
+                        <td>EGP300.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="odd">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>412345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td>
+                          <span class="badge badge-danger">Canceled</span></td>
+                        <td>EGP200.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="even">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>512345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Marsol</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-warning">Pending</span></td>
+                        <td>EGP400.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="odd">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>612345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td><span class="badge badge-warning">Pending</span></td>
+                        <td>EGP500.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                      <tr style="height: 15px; font-size: 10px;" role="row" class="even">
+                        <td class="sorting_1"><input type="checkbox" class="checkrow"></td>
+                        <td>712345678912345</td>
+                        <td>20-1-2022</td>
+                        <td>Mac</td>
+                        <td>EgyptPost</td>
+                        <td>12345678912345</td>
+                        <td>12345678912345</td>
+                        <td>
+                          <span class="badge badge-danger">Canceled</span></td>
+                        <td>EGP900.00</td>
+                        <td>20:22:02 AM</td>
+                        <td>Pos</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div id="filter">
+                  <form action="#" class="">
+                    <div class="row pt-1">
+
+
+
+                      <div class="col-2  m-auto">
+
+                        <button type="button" style="height: 30px;">Done</button>
+
+                      </div>
+                      <div class="col-2  m-auto">
+
+                        <button type="button" style="height: 30px;">Error</button>
+
+                      </div>
+                      <div class="col-2  m-auto">
+
+                        <button type="button" style="height: 30px;">Cancel</button>
+
+                      </div>
+                      <div class="col-2  m-auto">
+
+                        <button type="button" style="height: 30px;">Pending</button>
+
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-2 ">
+              <div class="rightside">
+                <div class="row">
+                  <div class="col-12 mt-3">
+
+                    <h3 class=" mb-0 mr-2 he">Mac</h3>
+                    <div class="data">
+                      <h5 for="">TotalPayments: <span class="bagde-icon badge-number  "> 0</span> </h5>
+                      <h5 for="">Financial dues: <span class="bagde-icon badge-number "> 0</span> </h5>
+                    </div>
+                  </div>
+
+                  <!-- <div class="col-12">
+
+
                                 <div class="data">
                                     <h5 for="">Current Balance : <span class="badge badge-info float-right">0</span></h5>
                                     <h5 for="">Today : <span class="badge badge-info float-right">0</span></h5>
@@ -233,20 +573,20 @@
                                     <h5 for="">LastMonth : <span class="badge badge-info float-right">0</span></h5>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
-                        
+
                                 <div class="data">
                                     <h5 for="">Pending : <span class="badge badge-warning float-right">0</span></h5>
                                     <h5 for="">Done : <span class="badge badge-success float-right">0</span></h5>
                                     <h5 for="">Error : <span class="badge badge-danger float-right">0</span></h5>
                                     <h5 for="">Canceled : <span class="badge badge-primary float-right">0</span></h5>
-                                  
+
                                 </div>
                             </div>
-                        
+
                             <div class="col-12">
-                              
+
                                 <div class="data">
                                     <h5 for="">Pending : <span class="badge badge-warning float-right">0</span></h5>
                                     <h5 for="">Done : <span class="badge badge-success float-right">0</span></h5>
@@ -254,97 +594,90 @@
                                     <h5 for="">Canceled : <span class="badge badge-primary float-right">0</span></h5>
                                 </div>
                             </div> -->
-                        
-                            </div>
-                            
-                            
-                            
-                            
-                    </div>
+
                 </div>
+
+
+
+
+              </div>
             </div>
-            </div>
-    
-    </div>
-    
-    
-    
-    
-    
-    
-    
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
     </div>
     <!-- app-root @e -->
     <!-- JavaScript -->
+    <!-- <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.css"> -->
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="assets/jquery.min.js"></script>
+    <script src="assets/jquery.datatables.js"></script>
+    <!-- <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.13/js/jquery.dataTables.js">
+    </script> -->
     <script src="assets/dataTables.jqueryui.js"></script>
-    <script src="assets/dataTables.jqueryui.min.js"></script>
-    <script src="assets/datatables.min.js"></script>
-    <script src="assets/js/bundle.js?ver=2.2.0"></script>
-    <script src="assets/js/scripts.js?ver=2.2.0"></script>
-    <script src="assets/js/charts/chart-ecommerce.js?ver=2.2.0"></script>
+
     <script>
-        $(document).ready(function() {
-    $('#datatable').DataTable({
-        "scrollY":        "55vh",
-        "info":     false,
+      $(document).ready(function () {
+        $('#datatable').DataTable({
+          "scrollY": "55vh",
+          "info": false,
+          "scrollCollapse": true,
+          "paging": false,
+          "searching": false,
+          "filter": true,
+        });
+      });
 
-        "scrollCollapse": true,
+      // <th scope="col">Select</th>
+      //                                         <th scope="col">TransactionId</th>
+      //                                         <th scope="col">Date</th>
+      //                                         <th scope="col">Customer</th>
+      //                                         <th scope="col">RiderNationalId</th>
+      //                                         <th scope="col">SenderNationalId</th>
+      //                                         <th scope="col">Status</th>
+      //                                         <th scope="col">Amount</th>
+      //                                         <th scope="col">Time</th>
 
-        "paging":         false,
-        data: dataset,
-        columns: [
-            { title: "TransactionId" },
-            { title: "Date" },
-            { title: "Customer" },
-            { title: "RiderNationalId" },
-            { title: "SenderNationalId" },
-            { title: "Status" },
-            { title: "Amount" },
-            { title: "Time" }
-        ]
-    });
-} );
+      var dataset = [
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
 
-// <th scope="col">Select</th>
-//                                         <th scope="col">TransactionId</th>
-//                                         <th scope="col">Date</th>
-//                                         <th scope="col">Customer</th>
-//                                         <th scope="col">RiderNationalId</th>
-//                                         <th scope="col">SenderNationalId</th>
-//                                         <th scope="col">Status</th>
-//                                         <th scope="col">Amount</th>
-//                                         <th scope="col">Time</th>
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+        [712345678912345, "23-2-2022", "Mac", 12345678912345, 12345678912345, "pending", 900, "20:31:55 Pm"],
+      ]
 
-var dataset=[
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-    [712345678912345,"23-2-2022","Mac",12345678912345,12345678912345,"pending",900,"20:31:55 Pm"],
-]
     </script>
 </body>
 
