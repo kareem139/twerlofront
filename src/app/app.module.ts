@@ -58,7 +58,8 @@ import { RightsidebarComponent } from './sharedcomponent/rightsidebar/rightsideb
     BrowserAnimationsModule,
     FormsModule,
     MatStepperModule,
-    DataTablesModule
+    DataTablesModule,
+    
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}

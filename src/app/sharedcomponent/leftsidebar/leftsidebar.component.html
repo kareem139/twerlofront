@@ -2,30 +2,30 @@
 <div class="col-12 mt-3">
     <h3 class=" mb-0 ml-1 he">Filters</h3>
     <div class="data">
-        <h5 for="">Supplier : <span >EgyptPost</span></h5>
-        <h5 for="">Customer : <span>Mac</span></h5>
-        <h5 for="">DateFrom :<span >22-1-2022</span> </h5>
-        <h5 for="">DateTo : <span >23-1-2022</span></h5>
+        <h5 for="">Supplier : <span >{{suppliername}}</span></h5>
+        <h5 for="">Customer : <span>{{customername}}</span></h5>
+        <h5 for="">DateFrom :<span >{{filter.controls["from"].value}}</span> </h5>
+        <h5 for="">DateTo : <span >{{filter.controls["to"].value}}</span></h5>
     </div>
 </div>
 
 <div class="col-12">
     <h3 class=" mb-0 ml-1 he" >Balances</h3>
     <div class="data">
-        <h5 for="">Current Balance : <span class="badge badge-number">0</span></h5>
-        <h5 for="">Today : <span class="badge badge-number">0</span ></h5>
-        <h5 for="">LastWeek : <span class="badge badge-number">0</span></h5>
-        <h5 for="">LastMonth : <span class="badge badge-number">0</span></h5>
+        <h5 for="">Current Balance : <span class="badge badge-number">{{balances.total |currency:'EGP'}}</span></h5>
+        <h5 for="">Today : <span class="badge badge-number">{{balances.today|currency:'EGP'}}</span ></h5>
+        <h5 for="">LastWeek : <span class="badge badge-number">{{balances.lastWeek|currency:'EGP'}}</span></h5>
+        <h5 for="">LastMonth : <span class="badge badge-number">{{balances.lastMonth|currency:'EGP'}}</span></h5>
     </div>
 </div>
 
 <div class="col-12">
     <h3 class=" mb-0 ml-1 he">Counters</h3>
     <div class="data">
-        <h5 for="">Pending : <span class="badge badge-number">10</span></h5>
-        <h5 for="">Done : <span class="badge badge-number">10</span></h5>
-        <h5 for="">Error : <span class="badge badge-number">3</span></h5>
-        <h5 for="">Canceled : <span class="badge badge-number">2</span></h5>
+        <h5 for="">Pending : <span class="badge badge-number">{{balances.pending|currency:'EGP'}}</span></h5>
+        <h5 for="">Done : <span class="badge badge-number">{{balances.done|currency:'EGP'}}</span></h5>
+        <h5 for="">Error : <span class="badge badge-number">{{balances.error|currency:'EGP'}}</span></h5>
+        <h5 for="">Canceled : <span class="badge badge-number">{{balances.canceled|currency:'EGP'}}</span></h5>
         <!-- <h5 for="">Total : <span class="badge badge-info float-right">0</span></h5> -->
     </div>
 </div>

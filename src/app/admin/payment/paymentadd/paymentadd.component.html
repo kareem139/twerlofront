@@ -1,46 +1,44 @@
 <div  id="filter">
-    <form action="#" class="">
+    <form [formGroup]="filter"  (ngSubmit)="getwithsearch()">
         <div class="row">
 
             <div class="col-2 m-auto">
                
                        
-                        <select class="" placeholder="اختر الشركة" required>
+                        <select class="" placeholder="اختر الشركة" formControlName="supplierId"> required>
                             <option value="">Supplier</option>
-                            <option value="fv-gq">General Question</option>
-                            <option value="fv-tq">Tachnical Question</option>
-                            <option value="fv-ab">Account &amp; Billing</option>
+                            <option *ngFor="let item of supplierLst" [value]="item.id">{{item.nameAr}}</option>
+                            
                         </select>
               
             </div>
-            <div class="col-2  m-auto">
+            <!-- <div class="col-2  m-auto">
               
                        
-                        <select class="" placeholder="اختر الشركة" required>
+                        <select class="" placeholder="اختر الشركة" formControlName="customerId" required>
                             <option value="">Customer</option>
-                            <option value="fv-gq">General Question</option>
-                            <option value="fv-tq">Tachnical Question</option>
-                            <option value="fv-ab">Account &amp; Billing</option>
+                            <option *ngFor="let item of companyLst" [value]="item.id">{{item.companyAr}}</option>
+                            
                         </select>
                 
-            </div>
+            </div> -->
 
             <div class="col-2 m-auto">
            
 
-                    <input type="text" class=""  placeholder="DateFrom" onblur="(this.type='text')" onfocus="(this.type='date')">
+                    <input type="text" class=""  placeholder="DateFrom" formControlName="from" onblur="(this.type='text')" onfocus="(this.type='date')">
              
             </div>
 
             <div class="col-2 m-auto">
  
               
-                    <input type="text" class=""  placeholder="DateTo" onblur="(this.type='text')" onfocus="(this.type='date')">
+                    <input type="text" class=""  placeholder="DateTo" formControlName="to" onblur="(this.type='text')" onfocus="(this.type='date')">
         
             </div>
             <div class="col-2 col-offset-2 m-auto">
      
-                    <button type="button"  style="height: 30px;">Search</button>
+                    <button type="submit"  style="height: 30px;">Search</button>
            
             </div>
         </div>
@@ -68,20 +66,20 @@
               <td>
                   <input type="checkbox" class="checkrow" (change)="calculateselect($event.target)">
               </td>
-            <td>{{ post.id }}</td>
-            <td>20-1-2022</td>
-            <td>{{ post.to }}</td>
-            <td>{{ post.from }}</td>
-            <td>{{ post.rider }}</td>
-            <td>{{ post.sender }}</td>
+            <td>{{ post.transactionId }}</td>
+            <td>{{post.paymentTime}}</td>
+            <td>{{ post.company.companyAr }}</td>
+            <td>{{ post.userNameAr }}</td>
+            <td>{{ post.riderNationalNo }}</td>
+            <td>{{ post.senderMobileNo }}</td>
             <td>
-                <span *ngIf="post.status==1" class="badge badge-warning">Pending</span>
-                <span *ngIf="post.status==2" class="badge badge-danger">Canceled</span>
-                <span *ngIf="post.status==3" class="badge badge-success">Success</span>
+                <span *ngIf="post.paymentStatus==1" class="badge badge-warning">Pending</span>
+                <span *ngIf="post.paymentStatus==3" class="badge badge-danger">Canceled</span>
+                <span *ngIf="post.paymentStatus==2" class="badge badge-success">Success</span>
             </td>
-            <td>{{ post.amount |currency:"EGP" }}</td>
+            <td>{{ post.paymentAmount |currency:"EGP" }}</td>
             <td>20:22:02 AM</td>
-            <td>{{post.type}}</td>
+            <td>{{post.paymentMethod}}</td>
           </tr>
         </tbody>
       </table>

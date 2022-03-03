@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { UrlService } from 'src/app/shared/service/url.service';
 
 @Injectable({
@@ -7,6 +8,13 @@ import { UrlService } from 'src/app/shared/service/url.service';
 })
 export class PaymentService {
 
+  filternav=new FormGroup({
+    customerId: new FormControl(''),
+    supplierId: new FormControl(''),
+    from: new FormControl(''),
+    to: new FormControl(''),
+  });;
+  datanav:any;
   constructor(private mainurl:UrlService,private http:HttpClient) { }
 
   addReq(data:any){
@@ -35,5 +43,39 @@ export class PaymentService {
     return this.http.put(this.mainurl._mainurl+'Payments/Payment/CancelPaymentById',{}, {
       params: { transId: transIdd }
    })
+  }
+
+  getpaymentbysearch(filter:FormGroup,data:FormGroup){
+    this.filternav=filter;
+    this.datanav=data
+    return this.http.get(this.mainurl._paymenturl+'Payments/Payment/GetPaymentsWithSearch',{params:{
+      PageNumber:filter.controls["PageNumber"].value,PageSize:filter.controls["PageSize"].value,RouteValue:filter.controls["RouteValue"].value,supplierId:data.controls["supplierId"].value,
+      customerId:data.controls["customerId"].value,from:data.controls["from"].value,to:data.controls["to"].value
+    }})
+  }
+
+  getallcompanyList(){
+    return this.http.get(this.mainurl._paymenturl+'Companies/Companies/GetCompanyCodes');
+  }
+
+  getSuppliers()
+  {
+    return this.http.get(this.mainurl._paymenturl+'Account/GetUsers');
+  }
+
+  getsupplierBalancesReq(data:FormGroup)
+  {
+    return this.http.get(this.mainurl._paymenturl+'Payments/Payment/GetSupplierBalances',{params:{
+      from:data.controls["from"].value,to:data.controls["to"].value,
+      supplierId:data.controls["supplierId"].value,
+    }})
+  }
+
+  getCustomerBalancesBySupplierReq(data:FormGroup)
+  {
+    return this.http.get(this.mainurl._paymenturl+'Payments/Payment/GetCustomerBalancesBySupplier',{params:{
+      from:data.controls["from"].value,to:data.controls["to"].value,
+      supplierId:data.controls["supplierId"].value,
+    }})
   }
 }

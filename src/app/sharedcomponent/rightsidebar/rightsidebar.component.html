@@ -1,10 +1,11 @@
 <div class="row" dir="rtl">
-    <div class="col-12 mt-3">
+    <div *ngFor="let item of balancesKeys" class="col-12 mt-3">
         
-        <h3 class=" mb-0 mr-2 he" >Mac</h3>
+        <h3 class=" mb-0 mr-2 he" >{{item}}</h3>
         <div class="data">
-            <h5 for=""><span class="badge badge-number float-left">0</span>TotalPayments</h5>
-            <h5 for=""><span class="badge badge-number float-left">0</span>Financial dues</h5>
+            <h5 for=""><span class="badge badge-number float-left">{{balances[item].amount|currency:'EGP'}}</span>TotalPayments</h5>
+            <h5 for=""><span class="badge badge-number float-left">{{balances[item].count}}</span>Count</h5>
+            <h5 for=""><span class="badge badge-number float-left">{{balances[item].worthly|currency:'EGP'}}</span>Financial dues</h5>
         </div>
     </div>
     

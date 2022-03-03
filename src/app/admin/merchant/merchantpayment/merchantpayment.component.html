@@ -2,7 +2,7 @@
     <form action="#" class="">
         <div class="row">
 
-            <div class="col-2 m-auto">
+            <!-- <div class="col-2 m-auto">
                
                        
                         <select class="" placeholder="اختر الشركة" required>
@@ -12,7 +12,7 @@
                             <option value="fv-ab">Account &amp; Billing</option>
                         </select>
               
-            </div>
+            </div> -->
             <div class="col-2  m-auto">
               
                        
@@ -38,9 +38,9 @@
                     <input type="text" class=""  placeholder="DateTo" onblur="(this.type='text')" onfocus="(this.type='date')">
         
             </div>
-            <div class="col-2 m-auto">
+            <div class="col-2 col-offset-2 m-auto">
      
-                    <button type="submit" class="btn  btn-primary">Search</button>
+                    <button type="button"  style="height: 30px;">Search</button>
            
             </div>
         </div>
@@ -50,24 +50,28 @@
     <table datatable [dtOptions]="dtOptions" class="row-border hover  w-100">
         <thead>
             <tr>
-                <th scope="col">Select</th>
-                <th scope="col">TransactionId</th>
-                <th scope="col">Time</th>
-                <th scope="col">Customer</th>
-                <th scope="col">RiderNationalId</th>
-                <th scope="col">SenderNationalId</th>
-                <th scope="col">Status</th>
-                <th scope="col">Amount</th>
+                <th class="col">Select<span class="badge badge-number">{{selected}}</span></th>
+                <th class="col">TransactionId</th>
+                <th class="col">Payment Date</th>
+                <th class="col">Customer</th>
+                <th class="col">Supplier</th>
+                <th class="col">RiderNationalId</th>
+                <th class="col">SenderNationalId</th>
+                <th class="col">Status</th>
+                <th class="col">Amount</th>
+                <th class="col">Time</th>
+                <th>PaymentType</th>
               </tr>
         </thead>
         <tbody id="sco">
-          <tr *ngFor="let post of data">
+          <tr *ngFor="let post of data" style="height: 15px;font-size: 10px;">
               <td>
-                  <input type="checkbox">
+                  <input type="checkbox" class="checkrow" (change)="calculateselect($event.target)">
               </td>
             <td>{{ post.id }}</td>
             <td>20-1-2022</td>
             <td>{{ post.to }}</td>
+            <td>{{ post.from }}</td>
             <td>{{ post.rider }}</td>
             <td>{{ post.sender }}</td>
             <td>
@@ -75,7 +79,9 @@
                 <span *ngIf="post.status==2" class="badge badge-danger">Canceled</span>
                 <span *ngIf="post.status==3" class="badge badge-success">Success</span>
             </td>
-            <td>{{ post.amount }}</td>
+            <td>{{ post.amount |currency:"EGP" }}</td>
+            <td>20:22:02 AM</td>
+            <td>{{post.type}}</td>
           </tr>
         </tbody>
       </table>
@@ -84,24 +90,28 @@
 <div  id="filter">
     <form action="#" class="">
         <div class="row pt-1">
-            <div class="col-2 m-auto float-right">
-                <h5>  Selected Count: <span class="badge badge-info float-right">0</span></h5>
-             
-         
-          </div>
-
-            <div class="col-2 m-auto">
+            
+            
+            <div class="col-2  m-auto">
+              
+                <button type="button"  style="height: 30px;">Done</button>
                 
-                <select class="" placeholder="اختر الشركة" style="height: 30px;" required>
-                    <option value="">Actions</option>
-                    <option value="fv-gq">General Question</option>
-                    <option value="fv-tq">Tachnical Question</option>
-                    <option value="fv-ab">Account &amp; Billing</option>
-                </select>
+            </div>
+            
+            <div class="col-2  m-auto">
+              
+                <button type="button"  style="height: 30px;">Error</button>
+                
+            </div>
+            
+            <div class="col-2  m-auto">
+              
+                <button type="button"  style="height: 30px;">Pending</button>
+                
             </div>
             <div class="col-2  m-auto">
               
-                <button type="submit" class="btn  btn-info" style="height: 35px;">Save</button>
+                <button type="button"  style="height: 30px;">Canceled</button>
                 
             </div>
 
@@ -109,4 +119,3 @@
         </div>
     </form>
 </div>
-

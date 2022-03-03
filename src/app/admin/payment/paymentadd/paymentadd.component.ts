@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CompanyService } from '../../services/company.service';
 import { PaymentService } from '../../services/payment.service';
 import Swal from 'sweetalert2'
 import { HttpClient } from '@angular/common/http';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-paymentadd',
   templateUrl: './paymentadd.component.html',
   styleUrls: ['./paymentadd.component.css']
 })
-export class PaymentaddComponent implements OnInit {
+export class PaymentaddComponent implements OnInit,OnChanges {
 
   constructor(private service:PaymentService,private router:Router,private companyservice:CompanyService,
     private http:HttpClient) { }
@@ -19,37 +20,53 @@ export class PaymentaddComponent implements OnInit {
     scrollCollapse:true,
     paging:false
   };
+  filter = new FormGroup({
+    customerId: new FormControl(''),
+    supplierId: new FormControl(''),
+    from: new FormControl(''),
+    to: new FormControl(''),
+  });
 
-  data:any=[
-    {id:112345678912345,to:"Mac",rider:12345678912345,amount:50000,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:300,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:712345678912345,to:"Mac",rider:12345678912345,amount:1000,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:112345678912345,to:"Mac",rider:12345678912345,amount:500,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:3000,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:712345678912345,to:"Mac",rider:12345678912345,amount:900,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:112345678912345,to:"Mac",rider:12345678912345,amount:500,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:300,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:712345678912345,to:"Mac",rider:12345678912345,amount:900,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:112345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:300,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-    {id:712345678912345,to:"Mac",rider:12345678912345,amount:900,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  ];
+  pagination = new FormGroup({
+    PageNumber: new FormControl(1),
+    PageSize: new FormControl(10),
+    RouteValue: new FormControl(''),
+   
+  });
+  companyLst:any;
+  supplierLst:any;
+  // data:any=[
+  //   {id:112345678912345,to:"Mac",rider:12345678912345,amount:50000,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:300,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:712345678912345,to:"Mac",rider:12345678912345,amount:1000,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:112345678912345,to:"Mac",rider:12345678912345,amount:500,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:3000,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:712345678912345,to:"Mac",rider:12345678912345,amount:900,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:112345678912345,to:"Mac",rider:12345678912345,amount:500,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:300,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:712345678912345,to:"Mac",rider:12345678912345,amount:900,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:112345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:300,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  //   {id:712345678912345,to:"Mac",rider:12345678912345,amount:900,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
+  // ];
+  data:any;
   listofcompanies:Array<any>=[]
   random:string="";
   selectedcounter=0;
   ngOnInit(): void {
+   
     this.dtOptions = {
       scrollY:"60vh",
       scrollX:true,
@@ -63,13 +80,21 @@ export class PaymentaddComponent implements OnInit {
    searching:false,
    
     };
+
+   
   //   this.http.get('http://jsonplaceholder.typicode.com/posts')
   //   .subscribe(posts => {
   //     this.data = posts;
   // });
-    this.getallcodeReq();
-    this.checkontransId()
+    // this.getallcodeReq();
+    // this.checkontransId();
+    this.getAllCompanyList();
+    this.getAllSupplierList();
+    this.getwithsearch();
     
+  }
+  ngOnChanges():void{
+    console.log(this.filter.value)
   }
   selected:any;
   calculateselect(e:any){
@@ -190,6 +215,41 @@ export class PaymentaddComponent implements OnInit {
     var ele=e.target.parentElement?.parentElement;
     ele.classList.toggleClass("selectrow")
     this.selectedcounter+=1;
+  }
+
+  getwithsearch(){
+
+    console.log(this.filter.value)
+    console.log(this.pagination.controls["PageNumber"].value)
+    this.service.getpaymentbysearch(this.pagination,this.filter).subscribe((res:any)=>{
+      this.data=res.data;
+      console.log(res)
+      console.log(this.filter.value);
+    },(err)=>{
+      console.log(this.filter.value);
+    })
+  }
+
+  getAllCompanyList()
+  {
+    this.service.getallcompanyList().subscribe((res:any)=>{
+      console.log(res)
+      if (res.succeeded) {
+        this.companyLst=res.data 
+      }
+        
+    })
+  }
+
+  getAllSupplierList()
+  {
+    this.service.getSuppliers().subscribe((res:any)=>{
+ 
+  
+        this.supplierLst=res 
+      
+        
+    })
   }
 
 }

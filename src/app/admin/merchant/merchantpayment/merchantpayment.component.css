@@ -20,3 +20,12 @@
     overflow-x: scroll;
     overflow-y: scroll;
   }
+ 
+  .badge{
+    color: black;
+}
+
+.even .odd{
+    height: 15px;
+    font-size: 10px;
+}
