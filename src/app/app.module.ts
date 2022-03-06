@@ -26,6 +26,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { PaymentactionsComponent } from './admin/payment/paymentactions/paymentactions.component';
 import { LeftsidebarComponent } from './sharedcomponent/leftsidebar/leftsidebar.component';
 import { RightsidebarComponent } from './sharedcomponent/rightsidebar/rightsidebar.component';
+import { AllpaymentComponent } from './admin/payment/allpayment/allpayment.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { RightsidebarComponent } from './sharedcomponent/rightsidebar/rightsideb
     FiltersComponent,
     PaymentactionsComponent,
     LeftsidebarComponent,
-    RightsidebarComponent
+    RightsidebarComponent,
+    AllpaymentComponent
   ],
   imports: [
     BrowserModule,

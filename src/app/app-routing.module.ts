@@ -6,6 +6,7 @@ import { AddtransactionComponent } from './admin/merchant/addtransaction/addtran
 import { ListtransactionComponent } from './admin/merchant/listtransaction/listtransaction.component';
 import { MerchantpaymentComponent } from './admin/merchant/merchantpayment/merchantpayment.component';
 import { TransactionsComponent } from './admin/merchant/transactions/transactions.component';
+import { AllpaymentComponent } from './admin/payment/allpayment/allpayment.component';
 import { PaymentactionsComponent } from './admin/payment/paymentactions/paymentactions.component';
 import { PaymentaddComponent } from './admin/payment/paymentadd/paymentadd.component';
 import { PaymentlistComponent } from './admin/payment/paymentlist/paymentlist.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
     {path:"payment",children:[
       {path:"add",component:PaymentaddComponent},
       {path:"list",component:PaymentlistComponent},
-      {path:"action",component:PaymentactionsComponent}
+      {path:"action",component:PaymentactionsComponent},
+      {path:"all",component:AllpaymentComponent}
     ]},
     {path:"merchant",children:[
       {path:"payments",component:MerchantpaymentComponent},
