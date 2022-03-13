@@ -5,38 +5,13 @@ import { PaymentService } from '../../services/payment.service';
 @Component({
   selector: 'app-merchantpayment',
   templateUrl: './merchantpayment.component.html',
-  styleUrls: ['./merchantpayment.component.css']
+  styleUrls: ['./merchantpayment.component.css'],
 })
 export class MerchantpaymentComponent implements OnInit {
-
   dtOptions: DataTables.Settings = {};
 
-  // data:any=[
-  //   {id:112345678912345,to:"Mac",rider:12345678912345,amount:50000,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:300,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:712345678912345,to:"Mac",rider:12345678912345,amount:1000,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:112345678912345,to:"Mac",rider:12345678912345,amount:500,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:3000,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:712345678912345,to:"Mac",rider:12345678912345,amount:900,status:3,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:112345678912345,to:"Mac",rider:12345678912345,amount:500,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:300,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:712345678912345,to:"Mac",rider:12345678912345,amount:900,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:112345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:312345678912345,to:"Marsol",rider:12345678912345 ,amount:300,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:412345678912345,to:"Mac",rider:12345678912345,amount:200,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:512345678912345,to:"Marsol",rider:12345678912345,amount:400,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:612345678912345,to:"Mac",rider:12345678912345,amount:500,status:1,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  //   {id:712345678912345,to:"Mac",rider:12345678912345,amount:900,status:2,sender:12345678912345,from:"EgyptPost",type:"Pos"},
-  // ];
+
+ 
 
   data:any;
   listofcompanies:Array<any>=[]
@@ -54,29 +29,30 @@ export class MerchantpaymentComponent implements OnInit {
     PageNumber: new FormControl(1),
     PageSize: new FormControl(10),
     RouteValue: new FormControl(''),
-   
+
   });
   companyLst:any;
   supplierLst:any;
   ngOnInit(): void {
+   // this.service.datanav=this.filter;
+   // this.service.fetchdata=true;
     this.dtOptions = {
       scrollY:"60vh",
-      scrollX:true,
     scrollCollapse:true,
     paging:false,
     processing:false,
     info:false,
-    
+
     tabIndex:1,
     search:false,
    searching:false,
-     
+
     };
 
     this.getAllCompanyList();
     this.getAllSupplierList();
     this.getwithsearch();
-    
+
   }
 
   selected:any;
@@ -94,7 +70,7 @@ export class MerchantpaymentComponent implements OnInit {
     }
   }
 
-  
+
   changecounter(e:any){
     document.getElementById("k")?.parentElement?.parentElement;
     var ele=e.target.parentElement?.parentElement;
@@ -103,13 +79,14 @@ export class MerchantpaymentComponent implements OnInit {
   }
 
   getwithsearch(){
-
-    console.log(this.filter.value)
-    console.log(this.pagination.controls["PageNumber"].value)
+    this.service.test.next(this.filter)
+   // console.log(this.filter.value)
+   // console.log(this.pagination.controls["PageNumber"].value)
     this.service.getpaymentbysearch(this.pagination,this.filter).subscribe((res:any)=>{
       this.data=res.data;
-      console.log(res)
-      console.log(this.filter.value);
+
+    //  console.log(res)
+    //  console.log(this.filter.value);
     },(err)=>{
       console.log(this.filter.value);
     })
@@ -120,20 +97,16 @@ export class MerchantpaymentComponent implements OnInit {
     this.service.getallcompanyList().subscribe((res:any)=>{
       console.log(res)
       if (res.succeeded) {
-        this.companyLst=res.data 
+        this.companyLst=res.data
       }
-        
+
     })
   }
 
   getAllSupplierList()
   {
     this.service.getSuppliers().subscribe((res:any)=>{
- 
-  
-        this.supplierLst=res 
-      
-        
+        this.supplierLst=res
     })
   }
 }

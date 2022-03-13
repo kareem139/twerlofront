@@ -84,9 +84,7 @@ export class AllpaymentComponent implements OnInit {
   }
 
   getwithsearch(){
-
-    console.log(this.filter.value)
-    console.log(this.pagination.controls["PageNumber"].value)
+    this.service.test.next(this.filter)
     this.service.getpaymentbysearch(this.pagination,this.filter).subscribe((res:any)=>{
       this.data=res.data;
       console.log(res)

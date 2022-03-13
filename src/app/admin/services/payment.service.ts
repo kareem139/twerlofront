@@ -1,19 +1,22 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
 import { UrlService } from 'src/app/shared/service/url.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaymentService {
-
+  fetchdata=false;
   filternav=new FormGroup({
     customerId: new FormControl(''),
     supplierId: new FormControl(''),
     from: new FormControl(''),
     to: new FormControl(''),
   });;
+
+  test=new Subject<any>();
   datanav:any;
   constructor(private mainurl:UrlService,private http:HttpClient) { }
 
@@ -46,8 +49,9 @@ export class PaymentService {
   }
 
   getpaymentbysearch(filter:FormGroup,data:FormGroup){
-    this.filternav=filter;
-    this.datanav=data
+   // this.filternav=filter;
+    this.datanav=data;
+    this.fetchdata=true;
     return this.http.get(this.mainurl._paymenturl+'Payments/Payment/GetPaymentsWithSearch',{params:{
       PageNumber:filter.controls["PageNumber"].value,PageSize:filter.controls["PageSize"].value,RouteValue:filter.controls["RouteValue"].value,supplierId:data.controls["supplierId"].value,
       customerId:data.controls["customerId"].value,from:data.controls["from"].value,to:data.controls["to"].value
@@ -73,6 +77,8 @@ export class PaymentService {
 
   getCustomerBalancesBySupplierReq(data:FormGroup)
   {
+    //console.log(data);
+    
     return this.http.get(this.mainurl._paymenturl+'Payments/Payment/GetCustomerBalancesBySupplier',{params:{
       from:data.controls["from"].value,to:data.controls["to"].value,
       supplierId:data.controls["supplierId"].value,

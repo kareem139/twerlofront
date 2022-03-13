@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PaymentService } from 'src/app/admin/services/payment.service';
 
 @Component({
@@ -7,9 +8,12 @@ import { PaymentService } from 'src/app/admin/services/payment.service';
   templateUrl: './rightsidebar.component.html',
   styleUrls: ['./rightsidebar.component.css']
 })
-export class RightsidebarComponent implements OnInit {
+export class RightsidebarComponent implements OnInit,OnDestroy {
 
-  constructor(private paymentservice:PaymentService) { }
+  constructor(private paymentservice:PaymentService,private rout:Router) { }
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 
   filter = new FormGroup({
     customerId: new FormControl(''),
@@ -19,16 +23,35 @@ export class RightsidebarComponent implements OnInit {
   });
   balances:any;
   balancesKeys:any;
+  currentUrl="";
+  sub:any;
   ngOnInit(): void {
-    setInterval(()=>{
-      this.filter=this.paymentservice.datanav;
-     console.log(this.paymentservice.datanav.value.supplierId)
-     this.getCustomerBalancesBysupplier();
-    },1000) ;
+
+    this.sub=this.paymentservice.test.subscribe((res)=>{
+      console.log(res);
+      this.currentUrl=this.rout.url;
+           this.getCustomerBalancesBysupplier(res);
+
+    })
+    // setInterval(()=>{
+    //   this.currentUrl=this.rout.url;
+    // },1000)
+    // console.log(this.rout.url)
+    // this.filter=this.paymentservice.datanav;
+    // setInterval(()=>{
+    //   if(this.paymentservice.fetchdata){
+    //     this.filter=this.paymentservice.datanav;
+    //     console.log(this.paymentservice.datanav.value.supplierId)
+    //     this.paymentservice.fetchdata=false;
+    //   }
+
+    // },1000) ;
  
   }
-  getCustomerBalancesBysupplier(){
-    this.paymentservice.getCustomerBalancesBySupplierReq(this.filter).subscribe((res:any)=>{
+  getCustomerBalancesBysupplier(e:any){
+    this.paymentservice.getCustomerBalancesBySupplierReq(e).subscribe((res:any)=>{
+      console.log("cusbalance",res);
+      
       this.balances=res;
       this.balancesKeys=Object.keys(this.balances);
       console.log(this.balances["ماكدونالدز"]);

@@ -1,13 +1,16 @@
 <div class="row" dir="rtl">
-    <div *ngFor="let item of balancesKeys" class="col-12 mt-3">
+    <div *ngIf="currentUrl=='/company/payment/add'">
+        <div *ngFor="let item of balancesKeys" class="col-12 mt-3">
         
-        <h3 class=" mb-0 mr-2 he" >{{item}}</h3>
-        <div class="data">
-            <h5 for=""><span class="badge badge-number float-left">{{balances[item].amount|currency:'EGP'}}</span>TotalPayments</h5>
-            <h5 for=""><span class="badge badge-number float-left">{{balances[item].count}}</span>Count</h5>
-            <h5 for=""><span class="badge badge-number float-left">{{balances[item].worthly|currency:'EGP'}}</span>Financial dues</h5>
+            <!-- <h3 class=" mb-0 mr-2 he" >{{item}}</h3> -->
+            <div class="">
+                <h5 for=""><span>{{item}}</span><span class="badge badge-number float-left">{{balances[item].amount|currency:'EGP'}}</span></h5>
+                <!-- <h5 for=""><span class="badge badge-number float-left">{{balances[item].count}}</span>Count</h5>
+                <h5 for=""><span class="badge badge-number float-left">{{balances[item].worthly|currency:'EGP'}}</span>Financial dues</h5> -->
+            </div>
         </div>
     </div>
+
     
     <!-- <div class="col-12">
 

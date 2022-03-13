@@ -67,7 +67,7 @@
                   <input type="checkbox" class="checkrow" (change)="calculateselect($event.target)">
               </td>
             <td>{{ post.transactionId }}</td>
-            <td>{{post.paymentTime}}</td>
+            <td>{{post.paymentTime|date}}</td>
             <td>{{ post.company.companyAr }}</td>
             <td>{{ post.userNameAr }}</td>
             <td>{{ post.riderNationalNo }}</td>

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { PaymentService } from 'src/app/admin/services/payment.service';
 
 @Component({
@@ -8,9 +9,12 @@ import { PaymentService } from 'src/app/admin/services/payment.service';
   templateUrl: './leftsidebar.component.html',
   styleUrls: ['./leftsidebar.component.css']
 })
-export class LeftsidebarComponent implements OnInit {
+export class LeftsidebarComponent implements OnInit ,OnDestroy{
 
   constructor(private paymentservice:PaymentService,private rout:ActivatedRoute) { }
+  ngOnDestroy(): void {
+   this.subscription.unsubscribe();
+  }
   filter = new FormGroup({
     customerId: new FormControl(''),
     supplierId: new FormControl(''),
@@ -30,42 +34,60 @@ export class LeftsidebarComponent implements OnInit {
   balances:any;
   suppliername:any;
   customername:any;
+ subscription:any;
   ngOnInit(): void {
+    this.subscription=
+    this.paymentservice.test.subscribe((res:any)=>{
+      this.getsupplierBalances(res);
+      this.getsuppliername(res);
+      this.getcustomername(res);
+      console.log(res);
+      
+    });
+   // this.filter=this.paymentservice.datanav;
    setInterval(()=>{
-     this.filter=this.paymentservice.datanav;
+   //  this.filter=this.paymentservice.datanav;
    // console.log(this.paymentservice.datanav.value.supplierId)
-    this.getsupplierBalances();
-    this.getsuppliername();
-    this.getcustomername();
-   },2000) ;
+  //  this.getsupplierBalances();
+  //  this.getsuppliername();
+  //  this.getcustomername();
+    //   if(this.paymentservice.fetchdata){
+    //     this.filter=this.paymentservice.datanav;
+    //     console.log(this.paymentservice.datanav.value.supplierId)
+    //     this.getsupplierBalances();
+    // this.getsuppliername();
+    // this.getcustomername();
+    // //this.paymentservice.fetchdata=false;
+    // }
+   },1000) ;
  
    
   }
   
-  getsupplierBalances(){
-    this.paymentservice.getsupplierBalancesReq(this.filter).subscribe((res:any)=>{
+  getsupplierBalances(e:any){
+    this.paymentservice.getsupplierBalancesReq(e).subscribe((res:any)=>{
       this.balances=res;
     })
   }
   allsupplier:any;
-  getsuppliername(){
+  getsuppliername(e:any){
     this.paymentservice.getSuppliers().subscribe((res:any)=>{
        this.allsupplier=res;
       console.log(res)
       this.allsupplier.forEach((element:any) => {
-        if (element.id==this.filter.controls['supplierId'].value) {
+        if (element.id==e.controls['supplierId'].value) {
           this.suppliername=element.nameAr
         }
       });
     });
   }
 allcustomers:any;
-  getcustomername(){
+  getcustomername(e:any){
     this.paymentservice.getallcompanyList().subscribe((res:any)=>{
        this.allcustomers=res.data;
       console.log(res)
       this.allcustomers.forEach((element:any) => {
-        if (element.id==this.filter.controls['customerId'].value) {
+        if (element.id==e.controls['customerId'].value) {
           this.customername=element.companyAr
         }
       });

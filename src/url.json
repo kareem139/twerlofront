@@ -1,3 +1,3 @@
 [
-    {"mainurl":"https://196.204.6.118:7729/api/","paymentUrl":"https://196.204.6.118:7729/api/"}
+    {"mainurl":"https://localhost:44335/api/","paymentUrl":"https://localhost:44335/api/"}
 ]
