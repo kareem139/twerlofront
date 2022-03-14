@@ -54,7 +54,7 @@ export class PaymentService {
     this.fetchdata=true;
     return this.http.get(this.mainurl._paymenturl+'Payments/Payment/GetPaymentsWithSearch',{params:{
       PageNumber:filter.controls["PageNumber"].value,PageSize:filter.controls["PageSize"].value,RouteValue:filter.controls["RouteValue"].value,supplierId:data.controls["supplierId"].value,
-      customerId:data.controls["customerId"].value,from:data.controls["from"].value,to:data.controls["to"].value
+      customerId:data.controls["customerId"].value,from:data.controls["from"].value,to:data.controls["to"].value,statusNum:data.controls["statusNum"].value
     }})
   }
 
@@ -67,12 +67,25 @@ export class PaymentService {
     return this.http.get(this.mainurl._paymenturl+'Account/GetUsers');
   }
 
-  getsupplierBalancesReq(data:FormGroup)
+  getsupplierBalancesReq(data:FormGroup,url:any)
   {
-    return this.http.get(this.mainurl._paymenturl+'Payments/Payment/GetSupplierBalances',{params:{
-      from:data.controls["from"].value,to:data.controls["to"].value,
-      supplierId:data.controls["supplierId"].value,
-    }})
+    console.log("this test",url);
+    
+    if(url=="/company/merchant/payments")
+    {
+      return this.http.get(this.mainurl._paymenturl+'Payments/Payment/GetCustomerBalances',{params:{
+        from:data.controls["from"].value,to:data.controls["to"].value,
+        customerId:data.controls["customerId"].value,statusNum:data.controls["statusNum"].value
+      }})
+    }
+    else
+    {
+      return this.http.get(this.mainurl._paymenturl+'Payments/Payment/GetSupplierBalances',{params:{
+        from:data.controls["from"].value,to:data.controls["to"].value,
+        supplierId:data.controls["supplierId"].value,statusNum:data.controls["statusNum"].value
+      }})
+    }
+   
   }
 
   getCustomerBalancesBySupplierReq(data:FormGroup)
@@ -81,7 +94,14 @@ export class PaymentService {
     
     return this.http.get(this.mainurl._paymenturl+'Payments/Payment/GetCustomerBalancesBySupplier',{params:{
       from:data.controls["from"].value,to:data.controls["to"].value,
-      supplierId:data.controls["supplierId"].value,
+      supplierId:data.controls["supplierId"].value,statusNum:data.controls["statusNum"].value
     }})
+  }
+
+  changePaymentStatusReq(data:Array<string>,stateNum:any){
+    console.log("data",data);
+  
+    var last= JSON.stringify(data)
+    return this.http.post(this.mainurl._paymenturl+'Payments/Payment/ChangePaymentStatus',data,{params:{statusNum:stateNum}});
   }
 }

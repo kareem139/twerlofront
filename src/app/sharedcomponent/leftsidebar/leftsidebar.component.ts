@@ -11,7 +11,7 @@ import { PaymentService } from 'src/app/admin/services/payment.service';
 })
 export class LeftsidebarComponent implements OnInit ,OnDestroy{
 
-  constructor(private paymentservice:PaymentService,private rout:ActivatedRoute) { }
+  constructor(private paymentservice:PaymentService,private rout:Router) { }
   ngOnDestroy(): void {
    this.subscription.unsubscribe();
   }
@@ -20,6 +20,7 @@ export class LeftsidebarComponent implements OnInit ,OnDestroy{
     supplierId: new FormControl(''),
     from: new FormControl(''),
     to: new FormControl(''),
+    statusNum: new FormControl(''),
   });
   // {
   //   "total": 1600,
@@ -38,10 +39,11 @@ export class LeftsidebarComponent implements OnInit ,OnDestroy{
   ngOnInit(): void {
     this.subscription=
     this.paymentservice.test.subscribe((res:any)=>{
-      this.getsupplierBalances(res);
-      this.getsuppliername(res);
-      this.getcustomername(res);
-      console.log(res);
+     
+      this.getsupplierBalances(res, this.rout.url);
+     // this.getsuppliername(res);
+     // this.getcustomername(res);
+     // console.log(res);
       
     });
    // this.filter=this.paymentservice.datanav;
@@ -64,8 +66,8 @@ export class LeftsidebarComponent implements OnInit ,OnDestroy{
    
   }
   
-  getsupplierBalances(e:any){
-    this.paymentservice.getsupplierBalancesReq(e).subscribe((res:any)=>{
+  getsupplierBalances(e:any,url:any){
+    this.paymentservice.getsupplierBalancesReq(e,url).subscribe((res:any)=>{
       this.balances=res;
     })
   }

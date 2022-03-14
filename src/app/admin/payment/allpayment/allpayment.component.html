@@ -22,7 +22,17 @@
                         </select>
                 
             </div>
-
+            <div class="col-2 m-auto">
+           
+                <select  formControlName="statusNum">
+                    <option value="">Status</option>
+                    <option value="1">Pending</option>
+                    <option value="2">Done</option>
+                    <option value="3">Canceled</option>
+                    <option value="4">Error</option>
+                </select>
+         
+             </div>
             <div class="col-2 m-auto">
            
 
@@ -57,7 +67,7 @@
                 <th class="col">SenderNationalId</th>
                 <th class="col">Status</th>
                 <th class="col">Amount</th>
-                <th class="col">Time</th>
+                <!-- <th class="col">Time</th> -->
                 <th>PaymentType</th>
               </tr>
         </thead>
@@ -66,19 +76,19 @@
               <td>
                   <input type="checkbox" class="checkrow" (change)="calculateselect($event.target)">
               </td>
-            <td>{{ post.transactionId }}</td>
-            <td>{{post.paymentTime}}</td>
-            <td>{{ post.company.companyAr }}</td>
-            <td>{{ post.userNameAr }}</td>
+            <td id="transactionId">{{ post.transactionId }}</td>
+            <td>{{post.paymentTime|date:"shortDate"}}|{{post.paymentTime|date:"shortTime"}}</td>
+            <td>{{ post.company.companyEn }}</td>
+            <td>{{ post.userNameEn }}</td>
             <td>{{ post.riderNationalNo }}</td>
             <td>{{ post.senderMobileNo }}</td>
             <td>
                 <span *ngIf="post.paymentStatus==1" class="badge badge-warning">Pending</span>
-                <span *ngIf="post.paymentStatus==3" class="badge badge-danger">Canceled</span>
-                <span *ngIf="post.paymentStatus==2" class="badge badge-success">Success</span>
-            </td>
+                <span *ngIf="post.paymentStatus==3" class="badge badge-primary">Canceled</span>
+                <span *ngIf="post.paymentStatus==4" class="badge badge-danger">Error</span>
+                <span *ngIf="post.paymentStatus==2" class="badge badge-success">Success</span>          </td>
             <td>{{ post.paymentAmount |currency:"EGP" }}</td>
-            <td>20:22:02 AM</td>
+            <!-- <td>20:22:02 AM</td> -->
             <td>{{post.paymentMethod}}</td>
           </tr>
         </tbody>
@@ -89,30 +99,28 @@
     <form action="#" class="">
         <div class="row pt-1">
             
-            
             <div class="col-2  m-auto">
               
-                <button type="button"  style="height: 30px;">Done</button>
+                <button type="button" (click)="changeStatus(2)"  style="height: 30px;">Done</button>
                 
             </div>
             
             <div class="col-2  m-auto">
               
-                <button type="button"  style="height: 30px;">Error</button>
+                <button type="button" (click)="changeStatus(4)"  style="height: 30px;">Error</button>
                 
             </div>
             
             <div class="col-2  m-auto">
               
-                <button type="button"  style="height: 30px;">Pending</button>
+                <button type="button" (click)="changeStatus(1)" style="height: 30px;">Pending</button>
                 
             </div>
             <div class="col-2  m-auto">
               
-                <button type="button"  style="height: 30px;">Canceled</button>
+                <button type="button" (click)="changeStatus(3)" style="height: 30px;">Canceled</button>
                 
             </div>
-
 
         </div>
     </form>

@@ -29,3 +29,6 @@
     height: 15px;
     font-size: 10px;
 }
+#transactionId{
+    white-space: nowrap;
+}

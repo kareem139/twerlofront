@@ -20,6 +20,7 @@ export class RightsidebarComponent implements OnInit,OnDestroy {
     supplierId: new FormControl(''),
     from: new FormControl(''),
     to: new FormControl(''),
+    statusNum: new FormControl(''),
   });
   balances:any;
   balancesKeys:any;
@@ -28,8 +29,8 @@ export class RightsidebarComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
 
     this.sub=this.paymentservice.test.subscribe((res)=>{
-      console.log(res);
       this.currentUrl=this.rout.url;
+      console.log("MY URL",this.currentUrl);
            this.getCustomerBalancesBysupplier(res);
 
     })

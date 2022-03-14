@@ -5,6 +5,7 @@ import { PaymentService } from '../../services/payment.service';
 import Swal from 'sweetalert2'
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-paymentadd',
@@ -23,8 +24,9 @@ export class PaymentaddComponent implements OnInit,OnChanges {
   filter = new FormGroup({
     customerId: new FormControl(''),
     supplierId: new FormControl(''),
-    from: new FormControl(''),
+    from: new FormControl(moment().format('YYYY-MM-DD')),
     to: new FormControl(''),
+    statusNum:new FormControl('')
   });
 
   pagination = new FormGroup({
@@ -42,7 +44,7 @@ export class PaymentaddComponent implements OnInit,OnChanges {
   selectedcounter=0;
   ngOnInit(): void {
    
-
+    this.service.test.next(this.filter)
     this.dtOptions = {
       scrollY:"60vh",
       scrollX:true,
@@ -54,10 +56,10 @@ export class PaymentaddComponent implements OnInit,OnChanges {
     tabIndex:1,
     search:false,
    searching:false,
-   
+
     };
 
-   
+  
   //   this.http.get('http://jsonplaceholder.typicode.com/posts')
   //   .subscribe(posts => {
   //     this.data = posts;
@@ -70,14 +72,19 @@ export class PaymentaddComponent implements OnInit,OnChanges {
     
   }
   ngOnChanges():void{
-    console.log(this.filter.value)
+   // console.log(this.filter.value)
   }
   selected:any;
+  selectedTransaction:Array<string>=[]
   calculateselect(e:any){
     console.log("================")
     this.selected=0;
     e.classList.toggle("select");
     var all=document.getElementsByClassName("checkrow");
+    console.log("this",e.parentElement?.parentElement?.querySelector("#transactionId")?.innerHTML);
+
+    var tranid=e.parentElement?.parentElement?.querySelector("#transactionId")?.innerHTML;
+    this.selectedTransaction.push(tranid);
     for (let index = 0; index < all.length; index++) {
       const element = all[index];
       if (element.classList.contains("select")) {
@@ -187,8 +194,10 @@ export class PaymentaddComponent implements OnInit,OnChanges {
 
   
   changecounter(e:any){
-    document.getElementById("k")?.parentElement?.parentElement;
+    var row=document.getElementById("k")?.parentElement?.parentElement;
     var ele=e.target.parentElement?.parentElement;
+    console.log(ele);
+    
     ele.classList.toggleClass("selectrow")
     this.selectedcounter+=1;
   }
@@ -226,4 +235,44 @@ export class PaymentaddComponent implements OnInit,OnChanges {
     })
   }
 
+  changeStatus(statusnum:any){
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.service.changePaymentStatusReq(this.selectedTransaction,statusnum).subscribe((res:any)=>{
+          console.log("result",res);
+          
+        //  this.getAllCompanyList();
+        //  this.getAllSupplierList();
+          this.getwithsearch();
+          this.selected=0;
+          this.selectedTransaction=[]
+          Swal.fire('Saved!', '', 'success')
+         
+          
+        },(err)=>{
+          this.selected=0;
+          this.selectedTransaction=[]
+          Swal.fire('HaveError!', '', 'error')
+        })
+        
+      }
+      else if (result.isDenied) {
+       // this.getAllCompanyList();
+       // this.getAllSupplierList();
+        this.getwithsearch();
+        this.selected=0;
+        this.selectedTransaction=[]
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+    
+
+  }
 }
