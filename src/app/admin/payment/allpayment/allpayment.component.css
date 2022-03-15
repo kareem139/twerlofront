@@ -30,6 +30,9 @@
     font-size: 10px;
 }
 
-#transactionId{
+
+#sco > tr> td{
     white-space: nowrap;
+    max-width: 20px;
+    overflow: hidden;
 }

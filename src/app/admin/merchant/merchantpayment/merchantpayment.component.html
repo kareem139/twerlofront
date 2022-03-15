@@ -77,10 +77,10 @@
               <td>
                   <input type="checkbox" class="checkrow" (change)="calculateselect($event.target)">
               </td>
-            <td id="transactionId">{{ post.transactionId }}</td>
+            <td id="transactionId" data-toggle="tooltip" data-placement="top" [title]='post.transactionId'>{{ post.transactionId }}</td>
             <td>{{post.paymentTime|date:'shortDate'}}|{{post.paymentTime|date:'shortTime'}}</td>
             <!-- <td>{{ post.company.companyAr }}</td> -->
-            <td>{{ post.userNameAr }}</td>
+            <td>{{ post.userNameEn }}</td>
             <td>{{ post.riderNationalNo }}</td>
             <td>{{ post.senderMobileNo }}</td>
             <td>

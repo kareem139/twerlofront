@@ -27,6 +27,7 @@ import { PaymentactionsComponent } from './admin/payment/paymentactions/paymenta
 import { LeftsidebarComponent } from './sharedcomponent/leftsidebar/leftsidebar.component';
 import { RightsidebarComponent } from './sharedcomponent/rightsidebar/rightsidebar.component';
 import { AllpaymentComponent } from './admin/payment/allpayment/allpayment.component';
+import { NgxPopperModule } from 'ngx-popper';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,8 @@ import { AllpaymentComponent } from './admin/payment/allpayment/allpayment.compo
     FormsModule,
     MatStepperModule,
     DataTablesModule,
+    NgxPopperModule,
+     
     
   ],
   providers: [

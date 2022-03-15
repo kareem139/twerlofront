@@ -20,7 +20,7 @@ export class AllpaymentComponent implements OnInit {
     customerId: new FormControl(''),
     supplierId: new FormControl(''),
     from: new FormControl(moment().format('YYYY-MM-DD')),
-    to: new FormControl(''),
+    to: new FormControl(moment().format('YYYY-MM-DD')),
     statusNum:new FormControl('')
   });
 
@@ -49,6 +49,12 @@ export class AllpaymentComponent implements OnInit {
     tabIndex:1,
     search:false,
    searching:false,
+   columnDefs:[
+    {
+      targets:[0,1,2,3,4,5,6,7,8],
+      orderable:false,
+      searchable:false
+    }]
    
     };
 

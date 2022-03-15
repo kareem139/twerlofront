@@ -27,11 +27,13 @@ export class HeaderComponent implements OnInit {
       {
         console.log("done")
         element.classList.add("changenavbtn");
+        element.classList.add("active");
 
       }
       else
       {
         element.classList.remove("changenavbtn");
+        element.classList.remove("active");
       
       }
       //console.log(rout);

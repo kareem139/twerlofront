@@ -1,8 +1,8 @@
 <div  id="filter">
     <form [formGroup]="filter"  (ngSubmit)="getwithsearch()">
-        <div class="row">
+        <div class="row pl-2">
 
-            <div class="col-2 m-auto">
+            <div class="col m-auto">
                
                        
                         <select class="" placeholder="اختر الشركة" formControlName="supplierId"> required>
@@ -12,7 +12,7 @@
                         </select>
               
             </div>
-            <div class="col-2  m-auto">
+            <div class="col  m-auto">
               
                        
                         <select class="" placeholder="اختر الشركة" formControlName="customerId" required>
@@ -22,7 +22,7 @@
                         </select>
                 
             </div>
-            <div class="col-2 m-auto">
+            <div class="col m-auto">
            
                 <select  formControlName="statusNum">
                     <option value="">Status</option>
@@ -33,20 +33,20 @@
                 </select>
          
              </div>
-            <div class="col-2 m-auto">
+            <div class="col m-auto">
            
 
                     <input type="text" class=""  placeholder="DateFrom" formControlName="from" onblur="(this.type='text')" onfocus="(this.type='date')">
              
             </div>
 
-            <div class="col-2 m-auto">
+            <div class="col m-auto">
  
               
                     <input type="text" class=""  placeholder="DateTo" formControlName="to" onblur="(this.type='text')" onfocus="(this.type='date')">
         
             </div>
-            <div class="col-2 col-offset-2 m-auto">
+            <div class="col m-auto">
      
                     <button type="submit"  style="height: 30px;">Search</button>
            
@@ -76,7 +76,7 @@
               <td>
                   <input type="checkbox" class="checkrow" (change)="calculateselect($event.target)">
               </td>
-            <td id="transactionId">{{ post.transactionId }}</td>
+            <td id="transactionId" data-toggle="tooltip" data-placement="top" [title]='post.transactionId'>{{ post.transactionId }}</td>
             <td>{{post.paymentTime|date:"shortDate"}}|{{post.paymentTime|date:"shortTime"}}</td>
             <td>{{ post.company.companyEn }}</td>
             <td>{{ post.userNameEn }}</td>

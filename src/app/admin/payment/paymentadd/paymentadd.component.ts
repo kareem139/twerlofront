@@ -25,7 +25,7 @@ export class PaymentaddComponent implements OnInit,OnChanges {
     customerId: new FormControl(''),
     supplierId: new FormControl(''),
     from: new FormControl(moment().format('YYYY-MM-DD')),
-    to: new FormControl(''),
+    to: new FormControl(moment().format('YYYY-MM-DD')),
     statusNum:new FormControl('')
   });
 
@@ -53,9 +53,16 @@ export class PaymentaddComponent implements OnInit,OnChanges {
     processing:false,
     info:false,
     
-    tabIndex:1,
+
     search:false,
    searching:false,
+   columnDefs:[
+     {
+       targets:[0,1,2,3,4,5,6,7,8],
+       orderable:false,
+       searchable:false
+     }
+   ]
 
     };
 
