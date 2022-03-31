@@ -61,9 +61,9 @@ export class PaymentaddComponent implements OnInit,OnChanges {
        targets:[0,1,2,3,4,5,6,7,8],
        orderable:false,
        searchable:false
-     }
-   ]
-
+     },
+   ],
+   
     };
 
   
