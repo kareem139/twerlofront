@@ -1,0 +1,45 @@
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">{{incident?.title}}</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+
+        <td>Description </td>
+        <td>{{incident?.description}}</td>
+      
+
+
+      </tr>
+      <tr>
+        <td>AsignTo</td>
+        <td>{{incident?.asignTo?.name}}</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td >
+            <span *ngIf='incident?.status' class="badge badge-success">Done</span>
+            <span *ngIf='!incident?.status' class="badge badge-danger">Not Yet</span>
+        </td>
+      </tr>
+      <tr>
+        <td>CreatedAt</td>
+        <td>{{incident?.createdAt}}</td>
+      </tr>
+      <tr>
+        <td>UpdatedAt</td>
+        <td>{{incident?.updatedAt}}</td>
+      </tr>
+      <tr *ngIf="role=='EDITOR'&&!incident?.status">
+        <td>Action</td>
+        <td>
+
+            <button class="btn btn-warning ml-3" (click)="resolveIncident('incident?._id')">Resolve</button>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>

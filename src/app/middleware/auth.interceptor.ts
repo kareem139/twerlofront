@@ -20,7 +20,7 @@ export class AuthInterceptor implements HttpInterceptor
           err=>{
               if (err.status==500) {
                   localStorage.removeItem('token');
-                this.router.navigateByUrl('/company/payment/add');
+                this.router.navigateByUrl('/account/login');
                 console.log(err)
               }
               else (err.stasus==401)

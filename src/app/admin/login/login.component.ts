@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { AccountService } from 'src/app/shared/service/account.service';
 import urls from '../../../../src/date.json';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,27 +20,40 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("data",this.alldata)
   }
 
-  login(){
-    this.router.navigateByUrl('company/payment/add')
-    // var da=JSON.stringify(localStorage.getItem("data"))
-    // console.log(da);
-    //   this.service.LoginReq(data.value).subscribe((res:any)=>{
-    //     if (res.succeeded) {
-    //       data=res.data;
-    //       localStorage.setItem('token', data.token);
-    //       // To get UserId
-    //       // let payload = JSON.parse(window.atob(data.token.split('.')[1]));
-    //       // let userid = payload.UserID;
-    //       // console.log(userid);
+  login(form:any){
+    console.log(form)
+    //this.router.navigateByUrl('login/payment/add')
+    var da=JSON.stringify(localStorage.getItem("data"))
+    console.log(da);
+      this.service.LoginReq(form.value).subscribe((res:any)=>{
+
+        var  data=res.data;
+          localStorage.setItem('token', data.tokens.accessToken);
+          console.log(res.data)
+          let payload = JSON.parse(window.atob(data.tokens.accessToken.split('.')[1]));
+          let userid = payload._id;
+          console.log(userid);
           
-    //       this.router.navigateByUrl('company/payment/add')
-    //     }
-    //       console.log(res);
+
+          if (res.statusCode==200)
+          {
+            Swal.fire({
+              icon: 'success',
+              title: 'Login Success',
+              text: 'Welcome Back'
+            })
+            this.router.navigateByUrl('/incident/list')
+          }
+
           
-    //   },err=>{
-    //       console.log(err);
+      },err=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Auth Faild',
+          text: 'have error in auth'
+        })
           
-    //   })
+      })
   }
 
 }

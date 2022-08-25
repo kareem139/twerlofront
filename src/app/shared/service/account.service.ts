@@ -11,21 +11,30 @@ export class AccountService {
 
   LoginReq(data:any)
   {
-    console.log();
     
-    return this.http.post(this.mainurl._mainurl+'Account/Login',data);
+    return this.http.post(this.mainurl._mainurl+'login/basic',data);
   }
 
+  AddUserReq(data:any)
+  {
+    
+    return this.http.post(this.mainurl._mainurl+'signup/addUser',data);
+  }
+  getalluser()
+  {
+    
+    return this.http.get(this.mainurl._mainurl+'user/all');
+  }
   // check on Role for user
   roleMatch(allowRoles:any):boolean
   {
       var isMatch=false;
       var payload=JSON.parse(window.atob(localStorage.getItem('token')!.split('.')[1]));
 
-      var roles=payload.role;
+      var role=payload.role;
     allowRoles.forEach((element: any) => {
 
-        if (roles==element) {
+        if (role==element) {
           isMatch=true;
           return false;
         }
@@ -37,4 +46,6 @@ export class AccountService {
       });
       return isMatch;
   }
+
+
 }

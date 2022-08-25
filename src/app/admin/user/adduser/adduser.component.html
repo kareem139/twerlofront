@@ -1,0 +1,31 @@
+
+<form #adduserform="ngForm" (ngSubmit)="ngsubmit(adduserform)" class="col-6 m-auto mt-5">
+    <div class="col-sm-6 m-auto">
+        <div class="form-group">
+            <label class="form-label" for="default-01">Name</label>
+            <div class="form-control-wrap">
+                <input ngModel name="name" type="text" class="form-control"  placeholder="Input placeholder">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6  m-auto">
+        <div class="form-group">
+            <label class="form-label" for="default-01">Email</label>
+            <div class="form-control-wrap">
+                <input ngModel name="email" type="email" class="form-control"  placeholder="Input placeholder">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 m-auto">
+        <div class="form-group">
+            <label class="form-label" for="default-01">Password</label>
+            <div class="form-control-wrap">
+                <input ngModel name="password" type="text" class="form-control"  placeholder="Input placeholder">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 m-auto">
+        
+        <button class="btn btn-lg btn-primary btn-block m-auto mt-5  col-3">Save</button>
+    </div>
+</form>

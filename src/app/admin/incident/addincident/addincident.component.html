@@ -1,0 +1,37 @@
+
+<form #addincidentform="ngForm" (ngSubmit)="ngsubmit(addincidentform)" class="col-6 m-auto mt-5">
+    <div class="col-sm-6 m-auto">
+        <div class="form-group">
+            <label class="form-label" for="default-01">Title</label>
+            <div class="form-control-wrap">
+                <input ngModel name="title" type="text" class="form-control"  placeholder="Input placeholder">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 m-auto">
+        <div class="form-group">
+            <label class="form-label" for="default-01">Description</label>
+            <div class="form-control-wrap">
+                <input ngModel name="description" type="text" class="form-control"  placeholder="Input placeholder">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 m-auto">
+        <div class="form-group">
+            <label class="form-label" for="default-06">Asign To</label>
+            <div class="form-control-wrap ">
+                <div class="form-control-select">
+                    <select ngModel name="asignTo" class="form-control">
+
+                        <option *ngFor="let n of users" [value]="n._id">{{n.name}}</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 m-auto">
+
+        <button class="btn btn-lg btn-primary btn-block mt-5">Save</button>
+    </div>
+</form>

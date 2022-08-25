@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of users;index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.roles[0].code}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
